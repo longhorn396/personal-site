@@ -1,5 +1,5 @@
 {
-  "app": "npm run deploy",
+  "app": "npm run deploy:cdk",
   "context": {
     "ENVIRONMENTS": {
       "staging": {
