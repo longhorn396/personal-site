@@ -1,0 +1,12 @@
+{
+  "app": "npm run deploy",
+  "context": {
+    "ENVIRONMENTS": {
+      "staging": {
+        "domainName": "drawhorn.click",
+        "hostedZoneId": "Z02209951AXT4ZLDS2QFN",
+        "hostedZoneName": "drawhorn.click"
+      }
+    }
+  }
+}
