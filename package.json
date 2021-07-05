@@ -1,8 +1,12 @@
 {
-  "name": "devin-drawhorn-personal-site",
-  "version": "0.0.1",
+  "author": "Devin Drawhorn",
   "description": "Personal website and portfolio for myself",
-  "main": "index.js",
+  "homepage": "https://drawhorn.click",
+  "icon": "./public/logo.png",
+  "keywords": [],
+  "main": "bin.ts",
+  "name": "devin-drawhorn-personal-site",
+  "version": "0.1.0",
   "scripts": {
     "build": "next build",
     "cdk": "cdk",
@@ -16,8 +20,6 @@
     "test": "jest --silent",
     "test:coverage": "jest --coverage --silent"
   },
-  "keywords": [],
-  "author": "Devin Drawhorn",
   "dependencies": {
     "@material-ui/core": "^4.11.2",
     "@material-ui/icons": "^4.11.2",
