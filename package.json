@@ -4,12 +4,16 @@
   "homepage": "https://drawhorn.click",
   "icon": "./public/logo.png",
   "keywords": [],
+  "license": "MIT",
   "main": "bin.ts",
   "name": "devin-drawhorn-personal-site",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/longhorn396/personal-site.git"
+  },
   "version": "0.1.0",
   "scripts": {
     "build": "next build",
-    "cdk": "cdk",
     "clean": "rm -rf .next/ build/ cdk.out/ coverage/",
     "deploy": "cdk deploy",
     "deploy:cdk": "ts-node bin.ts",
