@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Typography } from '@material-ui/core';
+import { Button, Grid, Typography } from '@material-ui/core';
 import AccentedImage from '../components/AccentedImage';
 import Default from '../components/DefaultLayout';
 import ExternalLink from '../components/ExternalLink';
@@ -49,6 +49,10 @@ const IndexPage = ({ projects, sections, work }: HomeProps): JSX.Element => {
               member of their IT Rotational Program. Two years and four different teams later, I graduated from the
               program and joined Gartner&apos;s Cloud Center of Excellence focussing on Kubernetes management.
             </Typography>
+            <br />
+            <Button href="/Devin_Drawhorn_Resume.PDF" variant="outlined">
+              My Resume
+            </Button>
           </Grid>
           <Grid item xs={12} md={4}>
             <AccentedImage alt="Devin Drawhorn" height="300px" src="/devin.png" width="200px" />
@@ -87,8 +91,8 @@ const IndexPage = ({ projects, sections, work }: HomeProps): JSX.Element => {
         <Typography className="center" variant="body1">
           My inbox is always open! You can reach me at{' '}
           <span className="dark-info">[my_first_name]@[my_last_name].com</span>, or{' '}
-          <span className="dark-info">[my_first_name][my_last_name]@gmail.com</span>. I also respond to LinkedIn
-          requests and messages.
+          <span className="dark-info">[my_first_name][my_last_name]@gmail.com</span>. I also respond to{' '}
+          <ExternalLink href="www.linkedin.com/in/devin-drawhorn" text="LinkedIn" /> requests and messages.
         </Typography>
       </section>
     </Default>
