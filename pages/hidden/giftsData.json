@@ -1,0 +1,51 @@
+{
+  "sections": [
+    {
+      "to": "coffee",
+      "display": "Coffee"
+    },
+    {
+      "to": "food",
+      "display": "Food"
+    },
+    {
+      "to": "whiskey",
+      "display": "Whiskey"
+    },
+    {
+      "to": "others",
+      "display": "Others"
+    }
+  ],
+  "coffee": [
+    {
+      "name": "Grounds & Hounds: Alpha Blend",
+      "desc": "My favorite dark roast to date",
+      "link": "https://groundsandhoundscoffee.com/collections/dark-roast-blend/products/alpha-blend-dark-roast",
+      "image": "https://cdn.shopify.com/s/files/1/0359/3609/products/AlphaBlend-WB-12oz-Website-NoTastingNotes-2020Bag-1000x1000_2a890d6f-6a13-4968-8e2c-cc1bbfedd53a_2000x.jpg?v=1607523140"
+    }
+  ],
+  "food": [
+    {
+      "name": "Wendy's",
+      "desc": "Don't sleep on the Grilled Pretzel Bacon Pub Chicken Sandwich",
+      "image": "https://app.wendys.com/unified/assets/menu/cropped/2916_medium_US_en.png"
+    }
+  ],
+  "whiskey": [
+    {
+      "name": "Woodford Reserve Bourbon",
+      "desc": "One of my constantly changing group of favorites",
+      "link": "https://www.woodfordreserve.com/whiskey/straight-bourbon-whiskey/",
+      "image": "https://media.woodfordreserve.com/wp-content/uploads/v2/2019/12/20202601/Bourbon-Bottle.png"
+    }
+  ],
+  "others": [
+    {
+      "name": "Duke Cannon's Big Ass Bricks of Soap",
+      "desc": "These last me months and smell great",
+      "link": "https://dukecannon.com/collections/big-ass-brick-of-soap",
+      "image": "https://cdn.shopify.com/s/files/1/0015/5697/1635/files/DC_web-logo_2_295x.png?v=1561479706"
+    }
+  ]
+}
