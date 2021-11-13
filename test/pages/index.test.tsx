@@ -2,10 +2,12 @@
  * @jest-environment jsdom
  */
 import { mount } from 'enzyme';
+import fs from 'fs';
 import React from 'react';
-import homeData from '../../data/homeData.json';
+import YAML from 'yaml';
 import Home, { getStaticProps } from '../../pages/index';
 
+const homeData = YAML.parse(fs.readFileSync('data/homeData.yaml', 'utf8'));
 const { projects, sections, work } = homeData;
 const homePage = mount(<Home projects={projects} sections={sections} work={work} />);
 
