@@ -9,9 +9,10 @@ import {
   makeStyles,
   Typography,
 } from '@material-ui/core';
-import Default from '../../components/DefaultLayout';
-import giftsData from './giftsData.json';
 import { Web } from '@material-ui/icons';
+import fs from 'fs';
+import YAML from 'yaml';
+import Default from '../../components/DefaultLayout';
 
 type Gift = {
   name: string;
@@ -103,7 +104,7 @@ const GiftsPage = (props: GiftsProps): JSX.Element => {
 };
 
 export const getStaticProps = (): { props: GiftsProps } => {
-  return { props: giftsData };
+  return { props: YAML.parse(fs.readFileSync('pages/hidden/giftsData.yaml', 'utf8')) };
 };
 
 export default GiftsPage;

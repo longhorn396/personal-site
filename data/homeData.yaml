@@ -1,0 +1,65 @@
+projects:
+- githubLink: ''
+  name: Autoscraper
+  projectLink: https://autoscraper-ui.herokuapp.com/
+  summary: A tool to learn about the depreciation of different cars over time and
+    the automobile market as a whole.
+- githubLink: https://github.com/longhorn396/code-golf
+  name: Code Golf
+  projectLink: ''
+  summary: Simple coding puzzles written in multiple languages, multiple patterns,
+    and comparison between the patterns.
+- githubLink: https://github.com/longhorn396/personal-site
+  name: Personal Website
+  projectLink: "/"
+  summary: The website you're currently visiting written with Next.js for React and
+    Material-UI hosted in AWS.
+- githubLink: https://github.com/longhorn396/WikIRMan
+  name: WikIRMan
+  projectLink: ''
+  summary: A game of Hangman where the words are pulled from a random Wikipedia article
+    that is shown to the player.
+
+sections:
+- to: about
+  display: About
+- to: work
+  display: Experience
+- to: projects
+  display: Projects
+- to: contact
+  display: Contact
+
+work:
+- name: Gartner
+  summary:
+  - My first six month rotation was on the Cloud Automation team where I fell in love
+    with working with cloud technologies. I used Terraform to deploy Lambda functions
+    that enforced policies such as S3 disaster recovery replication and proper logging
+    for load balancers, CDNs, and firewalls. I also created a command line utility
+    that simplified running boto3 scripts across multiple accounts.
+  - I then spent rotations on a frontend development team, the Performance Engineering
+    team, and a fullstack development team. While I learned a lot (including many
+    of the libraries and concepts of this website), I always wanted to come back to
+    the Cloud. Now, I am a member of our EKS team as more and more of our developers
+    look to onboard onto Kubernetes.
+- name: 'vAuto: Cox Automotive'
+  summary:
+  - The VIN Diesel team was working on a company-wide initiative that left their backlog
+    all but ignored. After showing my strengths and work ethic, I was allowed to take
+    just about any ticket from that backlog and run with it, something I love doing.
+    I not only got to work with .NET and C#, but also learned just how important elements
+    such as company culture and team camaraderie were to my success.
+- name: CDK Global
+  summary:
+  - The Data Platform team was my first Agile sprint team, which meant I was learning
+    a new process of working in addition to completely new technologies such as Avro,
+    Kafka, and Hadoop. By the end of the internship, my teammate and I had added several
+    features to a supporting application that increased the user experience of the
+    platform as a whole.
+- name: The University of Texas Health Science Center at Houston (UTHealth)
+  summary:
+  - As a summer intern, I was brought onto the Academic Technology team to help update
+    and migrate a catalog of Tomcat apps to new servers. Once I got comfortable with
+    the technologies in their tech stack, I gained more responsibilities and ultimately
+    earned a co-op position as a web developer.

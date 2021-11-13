@@ -1,11 +1,12 @@
 import React from 'react';
 import { Button, Grid, Typography } from '@material-ui/core';
+import fs from 'fs';
+import YAML from 'yaml';
 import AccentedImage from '../components/AccentedImage';
 import Default from '../components/DefaultLayout';
 import ExternalLink from '../components/ExternalLink';
 import Project, { ProjectProps } from '../components/Project';
 import WorkAccordion from '../components/WorkAccordion';
-import homeData from '../data/homeData.json';
 
 export type HomeProps = {
   projects: ProjectProps[];
@@ -100,7 +101,7 @@ const IndexPage = ({ projects, sections, work }: HomeProps): JSX.Element => {
 };
 
 export const getStaticProps = (): { props: HomeProps } => {
-  return { props: homeData };
+  return { props: YAML.parse(fs.readFileSync('data/homeData.yaml', 'utf8')) };
 };
 
 export default IndexPage;

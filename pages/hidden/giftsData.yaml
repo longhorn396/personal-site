@@ -1,0 +1,93 @@
+sections:
+- to: coffee
+  display: Coffee
+- to: food
+  display: Gift Cards
+- to: whiskey
+  display: Whiskey
+- to: others
+  display: Others
+
+coffee:
+- name: "Grounds & Hounds: Alpha Blend"
+  desc: My favorite dark roast to date
+  link: https://groundsandhoundscoffee.com/collections/dark-roast-blend/products/alpha-blend-dark-roast
+  image: https://cdn.shopify.com/s/files/1/0359/3609/products/AlphaBlend-WB-12oz-Website-NoTastingNotes-2020Bag-1000x1000_2a890d6f-6a13-4968-8e2c-cc1bbfedd53a_2000x.jpg?v=1607523140
+- name: "King's Coast: Deep Water Blend"
+  desc: Smooth medium roast
+  link: https://www.kingscoastcoffee.com/collections/blends/products/get-woke-blend
+  image: https://cdn.shopify.com/s/files/1/2332/1547/products/DEEPWATER-4K-CROP_720x.jpg?v=1630456553
+# - name: 'Invader Coffee: Blackwater Contractor'
+#   desc: Great blend from a veteran-owned company
+#   link: https://www.invadercoffee.com/collections/coffee/products/blackwater-contractor-blend
+#   image: https://cdn.shopify.com/s/files/1/0239/6667/9104/products/Blackwater_contractor_blend_1024x1024@2x.png?v=1555691624
+
+food:
+- name: Chick-fil-A
+  desc: ""
+  image: https://pbs.twimg.com/profile_images/1148729107406041088/emlH0Rv4.png
+- name: Five Guys
+  desc: ""
+  image: http://joinfiveguys.com/static/sites/www/files/images/global/knowledge-graph-logo/logo.png
+- name: Freebirds
+  desc: Better than Chipotle
+  image: https://freebirds.com/assets/img/FBLogo-TM-Gray-01.svg
+- name: Jimmy Johns
+  desc: ""
+  image: https://resources.jimmyjohns.com/logos/jj_logo_2020.png
+- name: Olive Garden
+  desc: ""
+  image: https://media.olivegarden.com/en_us/images/product/classic-chicken-alfredo-dinner-dpv-590x365.jpg
+- name: Raising Cane's
+  desc: ""
+  image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Raising_Cane%27s_Chicken_Fingers_logo.svg/1920px-Raising_Cane%27s_Chicken_Fingers_logo.svg.png
+- name: Red Lobster
+  desc: Their biscuits > Olive Garden's Breadsticks
+  image: https://insanelygoodrecipes.com/wp-content/uploads/2020/02/Red-Lobster-Biscuits.png
+- name: Saltgrass Steakhose
+  desc: ""
+  image: https://images.getbento.com/accounts/d0caa310b64e7ad2cb37b1e933788077/media/images/82837saltgrasslogowhitestroke.png
+- name: Texas Roadhouse
+  desc: ""
+  image: https://upload.wikimedia.org/wikipedia/en/thumb/b/b0/Texas_Roadhouse.svg/1200px-Texas_Roadhouse.svg.png
+- name: Torchy's Tacos
+  desc: ""
+  image: https://torchystacos.com/wp-content/uploads/chips_n_queso_1440.jpg
+# - name: Wendy's
+#   desc: Don't sleep on the Grilled Pretzel Bacon Pub Chicken Sandwich
+#   image: https://app.wendys.com/unified/assets/menu/cropped/2916_medium_US_en.png
+- name: Whataburger
+  desc: ""
+  image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Whataburger_logo.svg/1200px-Whataburger_logo.svg.png
+
+whiskey:
+- name: Bib & Tucker Bourbon
+  desc: ""
+  link: https://bibandtuckerbourbon.com/index.html
+  image: https://bibandtuckerbourbon.com/press/bib.png
+- name: Evan Williams White Label
+  desc: Don't let the price fool you
+  link: https://evanwilliams.com/bottled-in-bond-bourbon?cta=bottled-in-bond
+  image: https://evanwilliams.com/images/bottles/ew-bottleinbond.png?ver=2
+- name: Old Forester 100
+  desc: Surprisingly smooth
+  link: https://www.oldforester.com/products/old-forester-100-proof/
+  image: https://static.oldforester.com/app/uploads/2019/06/28193837/100-and-Old-Fashioned-Recipe-Lockup.png
+- name: Redbreast Lustau
+  desc: "(Expensive) Irish Whiskey aged in sherry barrels"
+  link: https://www.redbreastwhiskey.com/en-en/the-range/redbreast-lustau-whiskey
+  image: https://s3-eu-west-1.amazonaws.com/redbreastwhiskey-v2/prod/ProductToMarket/2754/product_image/3/product_image_450x450.png
+- name: Woodford Reserve Bourbon
+  desc: Probably my all-time favorite
+  link: https://www.woodfordreserve.com/whiskey/straight-bourbon-whiskey/
+  image: https://media.woodfordreserve.com/wp-content/uploads/v2/2019/12/20202601/Bourbon-Bottle.png
+
+others:
+- name: Duke Cannon's Big Ass Bricks of Soap
+  desc: These last me months and smell great
+  link: https://dukecannon.com/collections/big-ass-brick-of-soap
+  image: https://cdn.shopify.com/s/files/1/0015/5697/1635/files/DC_web-logo_2_295x.png?v=1561479706
+- name: "Shaker & Spoon: Individual Kits"
+  desc: Don't need a subscription but these look fun
+  link: https://shakerandspoon.com/shop/all/
+  image: https://d3a1v57rabk2hm.cloudfront.net/thecureallcocktailclub/delight_mobile-copy-11/images/ShakerAndSpoonLogo-EF6522-353.png?ts=1621010283&host=shakerandspoon.com
