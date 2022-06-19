@@ -35,7 +35,7 @@ const IndexPage = ({ projects, sections, work }: HomeProps): JSX.Element => {
         <Grid container justify="space-evenly" spacing={4}>
           <Grid item xs={12} md={8}>
             <Typography variant="body1">
-              Hello! I&apos;m Devin, a software engineer based out of North Texas.
+              Hello! I&apos;m Devin, a software engineer based out of Spring, Texas.
             </Typography>
             <br />
             <Typography variant="body1">
