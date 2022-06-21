@@ -50,18 +50,8 @@ const LeftDrawer = ({ notifyParent }: LeftDrawerProps): JSX.Element => {
         <Typography aria-label="Pages" component="h1" variant="h5" />
         <List aria-label="Site Navigation" component="nav" role="navigation">
           <ListItem button>
-            <Link href="/">
+            <Link href="/" passHref>
               <ListItemText className={classes.listItemText} primary="Home" />
-            </Link>
-          </ListItem>
-          <ListItem button>
-            <Link href="/dogs">
-              <ListItemText className={classes.listItemText} primary="Dogs" />
-            </Link>
-          </ListItem>
-          <ListItem button>
-            <Link href="/dogs/[breed]" as="dogs/shepherd">
-              <ListItemText className={classes.listItemText} primary="Only Shepherds" />
             </Link>
           </ListItem>
         </List>

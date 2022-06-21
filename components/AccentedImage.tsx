@@ -1,4 +1,5 @@
 import { Box, makeStyles } from '@material-ui/core';
+import Image from 'next/image';
 import React from 'react';
 import { theme } from './DefaultTheme';
 
@@ -22,7 +23,7 @@ const AccentedImage = ({ alt, height, src, width }: AccentedImageProps): JSX.Ele
   const classes = useStyles();
   return (
     <Box className={classes.box} height={height} width={width}>
-      <img alt={alt} height="100%" src={src} width="100%" />
+      <Image alt={alt} layout="fill" src={src} />
     </Box>
   );
 };

@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 module.exports = {
-  target: 'serverless',
+  // target: 'serverless',
   webpack: (config) => {
     config.module.rules.push({
       test: /react-spring/,
