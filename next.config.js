@@ -1,11 +1,7 @@
-/* eslint-disable no-undef */
-module.exports = {
-  // target: 'serverless',
-  webpack: (config) => {
-    config.module.rules.push({
-      test: /react-spring/,
-      sideEffects: true,
-    });
-    return config;
-  },
-};
+/** @type {import('next').NextConfig} */
+export default {
+  output: 'standalone',
+  experimental: {
+    optimizePackageImports: ['@mui/material', '@mui/icons-material']
+  }
+}
