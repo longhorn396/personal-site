@@ -1,5 +1,4 @@
-import { makeStyles } from '@material-ui/core';
-import { Launch } from '@material-ui/icons';
+import { Launch } from '@mui/icons-material';
 import React from 'react';
 import { theme } from './DefaultTheme';
 
@@ -8,20 +7,19 @@ type ExternalLinkProps = {
   text: string;
 };
 
-const useStyles = makeStyles({
-  a: {
-    color: theme.palette.info.main,
-    textDecoration: 'none',
-    '&:hover': {
-      textDecoration: 'underline',
-    },
-  },
-});
+// const useStyles = makeStyles({
+//   a: {
+//     color: theme.palette.info.main,
+//     textDecoration: 'none',
+//     '&:hover': {
+//       textDecoration: 'underline',
+//     },
+//   },
+// });
 
 const ExternalLink = ({ href, text }: ExternalLinkProps): JSX.Element => {
-  const classes = useStyles();
   return (
-    <a className={classes.a} href={href} target="_blank" rel="noreferrer noopener">
+    <a href={href} target="_blank" rel="noreferrer noopener">
       {text} <Launch fontSize="inherit" />
     </a>
   );

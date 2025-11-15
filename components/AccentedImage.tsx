@@ -1,4 +1,4 @@
-import { Box, makeStyles } from '@material-ui/core';
+import { Box } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
 import { theme } from './DefaultTheme';
@@ -10,19 +10,9 @@ type AccentedImageProps = {
   width: string;
 };
 
-const useStyles = makeStyles({
-  box: {
-    border: `4px solid ${theme.palette.info.main}`,
-    borderRadius: '4px',
-    margin: '0 auto',
-    position: 'relative',
-  },
-});
-
 const AccentedImage = ({ alt, height, src, width }: AccentedImageProps): JSX.Element => {
-  const classes = useStyles();
   return (
-    <Box className={classes.box} height={height} width={width}>
+    <Box sx={{ border: (t) => `4px solid ${t.palette.info.main}`, borderRadius: '4px', m: '0 auto', position: 'relative' }} height={height} width={width}>
       <Image alt={alt} layout="fill" src={src} />
     </Box>
   );

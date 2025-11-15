@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Grid, Typography } from '@material-ui/core';
+import { Button, Grid, Typography } from '@mui/material';
 import fs from 'fs';
 import YAML from 'yaml';
 import AccentedImage from '../components/AccentedImage';
@@ -33,7 +33,7 @@ const IndexPage = ({ projects, sections, work }: HomeProps): JSX.Element => {
       </section>
       <section id="about">
         <Grid container justify="space-evenly" spacing={4}>
-          <Grid item xs={12} md={8}>
+          <Grid size={{ xs: 12, md: 8 }}>
             <Typography variant="body1">
               Hello! I&apos;m Devin, a software engineer based out of Spring, Texas.
             </Typography>
@@ -55,7 +55,7 @@ const IndexPage = ({ projects, sections, work }: HomeProps): JSX.Element => {
               My Resume
             </Button>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <AccentedImage alt="Devin Drawhorn" height="300px" src="/devin.png" width="200px" />
           </Grid>
         </Grid>

@@ -4,12 +4,11 @@ import {
   Button,
   ButtonGroup,
   Grid,
-  Hidden,
-  makeStyles,
+  Paper,
   Slide,
   Toolbar,
   useScrollTrigger,
-} from '@material-ui/core';
+} from '@mui/material';
 import Link from 'next/link';
 import Image from 'next/image';
 import { scroller } from 'react-scroll';
@@ -22,18 +21,7 @@ type NavbarProps = {
   }[];
 };
 
-const useStyles = makeStyles({
-  buttonGroup: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-  },
-  buttonGroupWrapper: {
-    paddingTop: '9px',
-  },
-});
-
 const Navbar = ({ sections }: NavbarProps): JSX.Element => {
-  const classes = useStyles();
   const [state, setState] = React.useState({
     sectionLinksDisabled: false,
   });
@@ -45,19 +33,19 @@ const Navbar = ({ sections }: NavbarProps): JSX.Element => {
       <AppBar color="secondary" role="banner">
         <Toolbar>
           <Grid container>
-            <Grid item xs={5}>
+            <Grid size={5}>
               <LeftDrawer notifyParent={drawerToggled} />
             </Grid>
-            <Grid className="center" item xs={2}>
-              <Link href="/">
+            <Grid className="center" size={2}>
+              <Link href="/" legacyBehavior>
                 <a aria-label="Homepage" title="Devin Drawhorn" aria-disabled={state.sectionLinksDisabled}>
-                  <Image alt="Logo" src="/logo.png" height="48px" width="32px" />
+                  <Image alt="Logo" src="/logo.png" height={48} width={32} />
                 </a>
               </Link>
             </Grid>
-            <Grid className={classes.buttonGroupWrapper} item xs={5}>
-              <Hidden implementation="css" smDown>
-                <ButtonGroup aria-label="Page Navigation" className={classes.buttonGroup} size="small">
+            <Grid sx={{ pt: '9px' }} size={5}>
+              <Paper sx={{ display: { xs: 'none', md: 'block' } }}>
+                <ButtonGroup aria-label="Page Navigation" sx={{ display: 'flex', justifyContent: 'flex-end' }} size="small">
                   {sections &&
                     sections.map((section, index) => {
                       return (
@@ -73,7 +61,7 @@ const Navbar = ({ sections }: NavbarProps): JSX.Element => {
                       );
                     })}
                 </ButtonGroup>
-              </Hidden>
+              </Paper>
             </Grid>
           </Grid>
         </Toolbar>

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Container, CssBaseline } from '@material-ui/core';
-import { ThemeProvider } from '@material-ui/core/styles';
+import { Container, CssBaseline } from '@mui/material';
+import { ThemeProvider } from '@mui/material/styles';
 import Head from 'next/head';
 import { theme } from './DefaultTheme';
 import Navbar from './Navbar';

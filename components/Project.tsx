@@ -1,5 +1,5 @@
-import { Card, CardActions, CardContent, Grid, IconButton, Typography } from '@material-ui/core';
-import { GitHub, Web } from '@material-ui/icons';
+import { Card, CardActions, CardContent, Grid, IconButton, Typography } from '@mui/material';
+import { GitHub, Web } from '@mui/icons-material';
 import React from 'react';
 
 export type ProjectProps = {
@@ -11,7 +11,7 @@ export type ProjectProps = {
 
 const Project = ({ githubLink, name, projectLink, summary }: ProjectProps): JSX.Element => {
   return (
-    <Grid item xs={12} sm={6} md={4} lg={3}>
+    <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
       <Card>
         <CardContent>
           <Typography className="center" component="h3" variant="h6">

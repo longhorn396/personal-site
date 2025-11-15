@@ -6,10 +6,9 @@ import {
   CardMedia,
   Grid,
   IconButton,
-  makeStyles,
   Typography,
-} from '@material-ui/core';
-import { Web } from '@material-ui/icons';
+} from '@mui/material';
+import { Web } from '@mui/icons-material';
 import fs from 'fs';
 import YAML from 'yaml';
 import Default from '../../components/DefaultLayout';
@@ -29,18 +28,7 @@ type GiftsProps = {
   others: Gift[];
 };
 
-const useStyles = makeStyles({
-  media: {
-    height: '140px',
-  },
-  text: {
-    textAlign: 'center',
-    padding: '4px',
-  },
-});
-
 const GiftsPage = (props: GiftsProps): JSX.Element => {
-  const classes = useStyles();
   const sections = props.sections;
   return (
     <Default
@@ -69,11 +57,11 @@ const GiftsPage = (props: GiftsProps): JSX.Element => {
                   {props[to] &&
                     props[to].map(({ name, desc, link, image }) => {
                       return (
-                        <Grid item key={name} xs={12} sm={6} md={4} lg={3}>
+                        <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={name}>
                           <Card>
                             <CardActionArea>
-                              <CardMedia className={classes.media} image={image} title={name} />
-                              <div className={classes.text}>
+                              <CardMedia sx={{ height: '140px' }} image={image} title={name} />
+                              <div sx={{ textAlign: 'center', padding: '4px' }}>
                                 <Typography component="h3" variant="h6">
                                   {name}
                                 </Typography>
