@@ -33,6 +33,9 @@ const config: Config = {
     '!<rootDir>/.next/**',
     '!<rootDir>/*.config.js',
     '!<rootDir>/coverage/**',
+    '!<rootDir>/bin.ts',
+    '!<rootDir>/stack.ts',
+    '!<rootDir>/pages/_*.tsx',
   ],
 
   // The directory where Jest should output its coverage files
