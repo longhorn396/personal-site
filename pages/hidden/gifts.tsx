@@ -1,35 +1,27 @@
-import React from 'react';
-import {
-  Card,
-  CardActionArea,
-  CardActions,
-  CardMedia,
-  Grid,
-  IconButton,
-  Typography,
-} from '@mui/material';
-import { Web } from '@mui/icons-material';
-import fs from 'fs';
-import YAML from 'yaml';
-import Default from '../../components/DefaultLayout';
+import React from 'react'
+import { Card, CardActionArea, CardActions, CardMedia, Grid, IconButton, Typography } from '@mui/material'
+import { Web } from '@mui/icons-material'
+import fs from 'fs'
+import YAML from 'yaml'
+import Default from '../../components/DefaultLayout'
 
 type Gift = {
-  name: string;
-  desc: string;
-  link?: string;
-  image: string;
-};
+  name: string
+  desc: string
+  link?: string
+  image: string
+}
 
 type GiftsProps = {
-  sections: { to: string; display: string }[];
-  coffee: Gift[];
-  food: Gift[];
-  whiskey: Gift[];
-  others: Gift[];
-};
+  sections: { to: string; display: string }[]
+  coffee: Gift[]
+  food: Gift[]
+  whiskey: Gift[]
+  others: Gift[]
+}
 
 const GiftsPage = (props: GiftsProps): JSX.Element => {
-  const sections = props.sections;
+  const sections = props.sections
   return (
     <Default
       description="I know I'm difficult to shop for, so here's some ideas"
@@ -80,19 +72,19 @@ const GiftsPage = (props: GiftsProps): JSX.Element => {
                             </CardActions>
                           </Card>
                         </Grid>
-                      );
+                      )
                     })}
                 </Grid>
               </section>
-            );
+            )
           })}
       </div>
     </Default>
-  );
-};
+  )
+}
 
 export const getStaticProps = (): { props: GiftsProps } => {
-  return { props: YAML.parse(fs.readFileSync('pages/hidden/giftsData.yaml', 'utf8')) };
-};
+  return { props: YAML.parse(fs.readFileSync('pages/hidden/giftsData.yaml', 'utf8')) }
+}
 
-export default GiftsPage;
+export default GiftsPage

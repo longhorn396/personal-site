@@ -1,33 +1,24 @@
-import React from 'react';
-import {
-  AppBar,
-  Button,
-  ButtonGroup,
-  Grid,
-  Paper,
-  Slide,
-  Toolbar,
-  useScrollTrigger,
-} from '@mui/material';
-import Link from 'next/link';
-import Image from 'next/image';
-import { scroller } from 'react-scroll';
-import LeftDrawer from './Drawer';
+import React from 'react'
+import { AppBar, Button, ButtonGroup, Grid, Paper, Slide, Toolbar, useScrollTrigger } from '@mui/material'
+import Link from 'next/link'
+import Image from 'next/image'
+import { scroller } from 'react-scroll'
+import LeftDrawer from './Drawer'
 
 type NavbarProps = {
   sections?: {
-    to: string;
-    display: string;
-  }[];
-};
+    to: string
+    display: string
+  }[]
+}
 
 const Navbar = ({ sections }: NavbarProps): JSX.Element => {
   const [state, setState] = React.useState({
     sectionLinksDisabled: false,
-  });
+  })
   const drawerToggled = (open: boolean) => {
-    setState({ sectionLinksDisabled: open });
-  };
+    setState({ sectionLinksDisabled: open })
+  }
   return (
     <Slide appear={false} direction="down" in={!useScrollTrigger()}>
       <AppBar color="secondary" role="banner">
@@ -45,7 +36,11 @@ const Navbar = ({ sections }: NavbarProps): JSX.Element => {
             </Grid>
             <Grid sx={{ pt: '9px' }} size={5}>
               <Paper sx={{ display: { xs: 'none', md: 'block' } }}>
-                <ButtonGroup aria-label="Page Navigation" sx={{ display: 'flex', justifyContent: 'flex-end' }} size="small">
+                <ButtonGroup
+                  aria-label="Page Navigation"
+                  sx={{ display: 'flex', justifyContent: 'flex-end' }}
+                  size="small"
+                >
                   {sections &&
                     sections.map((section, index) => {
                       return (
@@ -58,7 +53,7 @@ const Navbar = ({ sections }: NavbarProps): JSX.Element => {
                         >
                           <span style={{ color: '#ffffff' }}>{section.display}</span>
                         </Button>
-                      );
+                      )
                     })}
                 </ButtonGroup>
               </Paper>
@@ -67,7 +62,7 @@ const Navbar = ({ sections }: NavbarProps): JSX.Element => {
         </Toolbar>
       </AppBar>
     </Slide>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

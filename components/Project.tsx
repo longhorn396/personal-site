@@ -1,13 +1,13 @@
-import { Card, CardActions, CardContent, Grid, IconButton, Typography } from '@mui/material';
-import { GitHub, Web } from '@mui/icons-material';
-import React from 'react';
+import { Card, CardActions, CardContent, Grid, IconButton, Typography } from '@mui/material'
+import { GitHub, Web } from '@mui/icons-material'
+import React from 'react'
 
 export type ProjectProps = {
-  githubLink?: string;
-  name: string;
-  projectLink?: string;
-  summary: string;
-};
+  githubLink?: string
+  name: string
+  projectLink?: string
+  summary: string
+}
 
 const Project = ({ githubLink, name, projectLink, summary }: ProjectProps): JSX.Element => {
   return (
@@ -38,7 +38,7 @@ const Project = ({ githubLink, name, projectLink, summary }: ProjectProps): JSX.
         </CardActions>
       </Card>
     </Grid>
-  );
-};
+  )
+}
 
-export default Project;
+export default Project

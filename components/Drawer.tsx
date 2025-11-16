@@ -1,12 +1,12 @@
-import React from 'react';
-import Link from 'next/link';
-import { Drawer, IconButton, List, ListItem, ListItemText, Typography } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import { theme } from './DefaultTheme';
+import React from 'react'
+import Link from 'next/link'
+import { Drawer, IconButton, List, ListItem, ListItemText, Typography } from '@mui/material'
+import MenuIcon from '@mui/icons-material/Menu'
+import { theme } from './DefaultTheme'
 
 type LeftDrawerProps = {
-  notifyParent(arg0: boolean): void;
-};
+  notifyParent(arg0: boolean): void
+}
 
 // const useStyles = makeStyles({
 //   drawer: {
@@ -30,11 +30,11 @@ type LeftDrawerProps = {
 const LeftDrawer = ({ notifyParent }: LeftDrawerProps): JSX.Element => {
   const [state, setState] = React.useState({
     left: false,
-  });
+  })
   const toggleDrawer = (open: boolean) => () => {
-    setState({ left: open });
-    notifyParent(open);
-  };
+    setState({ left: open })
+    notifyParent(open)
+  }
   return (
     <React.Fragment>
       <IconButton edge="start" color="inherit" aria-label="Menu" onClick={toggleDrawer(true)} disabled={state.left}>
@@ -56,7 +56,7 @@ const LeftDrawer = ({ notifyParent }: LeftDrawerProps): JSX.Element => {
         </List>
       </Drawer>
     </React.Fragment>
-  );
-};
+  )
+}
 
-export default LeftDrawer;
+export default LeftDrawer

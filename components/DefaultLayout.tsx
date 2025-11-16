@@ -1,23 +1,23 @@
-import React from 'react';
-import { Container, CssBaseline } from '@mui/material';
-import { ThemeProvider } from '@mui/material/styles';
-import Head from 'next/head';
-import { theme } from './DefaultTheme';
-import Navbar from './Navbar';
+import React from 'react'
+import { Container, CssBaseline } from '@mui/material'
+import { ThemeProvider } from '@mui/material/styles'
+import Head from 'next/head'
+import { theme } from './DefaultTheme'
+import Navbar from './Navbar'
 
 type DefaultLayoutProps = {
-  description: string;
-  title: string;
-  children?: React.ReactChild[];
+  description: string
+  title: string
+  children?: React.ReactChild[]
   sections?: {
-    to: string;
-    display: string;
-  }[];
-};
+    to: string
+    display: string
+  }[]
+}
 
 const DefaultLayout = ({ description, title, children, sections }: DefaultLayoutProps): JSX.Element => {
-  const pageDesc = description || 'Devin Drawhorn';
-  const pageTitle = title || 'Devin Drawhorn';
+  const pageDesc = description || 'Devin Drawhorn'
+  const pageTitle = title || 'Devin Drawhorn'
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -60,7 +60,7 @@ const DefaultLayout = ({ description, title, children, sections }: DefaultLayout
         {children ? children : ''}
       </Container>
     </ThemeProvider>
-  );
-};
+  )
+}
 
-export default DefaultLayout;
+export default DefaultLayout

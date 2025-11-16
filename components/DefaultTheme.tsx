@@ -1,7 +1,7 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme } from '@mui/material/styles'
 
-const serifFonts = ['Cambria', 'Cochin', 'Georgia', 'Times', 'Times New Roman', 'serif'].join(', ');
-const sansSerifFonts = ['Lucida Sans', 'Lucida Sans Regular', 'Geneva', 'Verdana', 'sans-serif'].join(',');
+const serifFonts = ['Cambria', 'Cochin', 'Georgia', 'Times', 'Times New Roman', 'serif'].join(', ')
+const sansSerifFonts = ['Lucida Sans', 'Lucida Sans Regular', 'Geneva', 'Verdana', 'sans-serif'].join(',')
 
 export const theme = createTheme({
   overrides: {
@@ -55,4 +55,4 @@ export const theme = createTheme({
     },
   },
   spacing: 8,
-});
+})

@@ -1,21 +1,25 @@
-import { Box } from '@mui/material';
-import Image from 'next/image';
-import React from 'react';
-import { theme } from './DefaultTheme';
+import { Box } from '@mui/material'
+import Image from 'next/image'
+import React from 'react'
+import { theme } from './DefaultTheme'
 
 type AccentedImageProps = {
-  alt: string;
-  height: string;
-  src: string;
-  width: string;
-};
+  alt: string
+  height: string
+  src: string
+  width: string
+}
 
 const AccentedImage = ({ alt, height, src, width }: AccentedImageProps): JSX.Element => {
   return (
-    <Box sx={{ border: (t) => `4px solid ${t.palette.info.main}`, borderRadius: '4px', m: '0 auto', position: 'relative' }} height={height} width={width}>
+    <Box
+      sx={{ border: (t) => `4px solid ${t.palette.info.main}`, borderRadius: '4px', m: '0 auto', position: 'relative' }}
+      height={height}
+      width={width}
+    >
       <Image alt={alt} layout="fill" src={src} />
     </Box>
-  );
-};
+  )
+}
 
-export default AccentedImage;
+export default AccentedImage

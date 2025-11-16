@@ -1,11 +1,11 @@
-import { Launch } from '@mui/icons-material';
-import React from 'react';
-import { theme } from './DefaultTheme';
+import { Launch } from '@mui/icons-material'
+import React from 'react'
+import { theme } from './DefaultTheme'
 
 type ExternalLinkProps = {
-  href: string;
-  text: string;
-};
+  href: string
+  text: string
+}
 
 // const useStyles = makeStyles({
 //   a: {
@@ -22,7 +22,7 @@ const ExternalLink = ({ href, text }: ExternalLinkProps): JSX.Element => {
     <a href={href} target="_blank" rel="noreferrer noopener">
       {text} <Launch fontSize="inherit" />
     </a>
-  );
-};
+  )
+}
 
-export default ExternalLink;
+export default ExternalLink

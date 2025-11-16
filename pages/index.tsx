@@ -1,24 +1,24 @@
-import React from 'react';
-import { Button, Grid, Typography } from '@mui/material';
-import fs from 'fs';
-import YAML from 'yaml';
-import AccentedImage from '../components/AccentedImage';
-import Default from '../components/DefaultLayout';
-import ExternalLink from '../components/ExternalLink';
-import Project, { ProjectProps } from '../components/Project';
-import WorkAccordion from '../components/WorkAccordion';
+import React from 'react'
+import { Button, Grid, Typography } from '@mui/material'
+import fs from 'fs'
+import YAML from 'yaml'
+import AccentedImage from '../components/AccentedImage'
+import Default from '../components/DefaultLayout'
+import ExternalLink from '../components/ExternalLink'
+import Project, { ProjectProps } from '../components/Project'
+import WorkAccordion from '../components/WorkAccordion'
 
 export type HomeProps = {
-  projects: ProjectProps[];
-  sections: { to: string; display: string }[];
-  work: { name: string; summary: string[] }[];
-};
+  projects: ProjectProps[]
+  sections: { to: string; display: string }[]
+  work: { name: string; summary: string[] }[]
+}
 
 const IndexPage = ({ projects, sections, work }: HomeProps): JSX.Element => {
-  const [expanded, setExpanded] = React.useState<string>('');
+  const [expanded, setExpanded] = React.useState<string>('')
   const handleChange = (panel: string) => (_event: React.ChangeEvent<Element>, isExpanded: boolean) => {
-    setExpanded(isExpanded ? panel : '');
-  };
+    setExpanded(isExpanded ? panel : '')
+  }
 
   return (
     <Default
@@ -70,7 +70,7 @@ const IndexPage = ({ projects, sections, work }: HomeProps): JSX.Element => {
             work.map(({ name, summary }) => {
               return (
                 <WorkAccordion expanded={expanded} key={name} name={name} onChange={handleChange} summary={summary} />
-              );
+              )
             })}
         </div>
       </section>
@@ -84,7 +84,7 @@ const IndexPage = ({ projects, sections, work }: HomeProps): JSX.Element => {
             projects.map(({ githubLink, name, projectLink, summary }: ProjectProps) => {
               return (
                 <Project key={name} githubLink={githubLink} name={name} projectLink={projectLink} summary={summary} />
-              );
+              )
             })}
         </Grid>
       </section>
@@ -97,11 +97,11 @@ const IndexPage = ({ projects, sections, work }: HomeProps): JSX.Element => {
         </Typography>
       </section>
     </Default>
-  );
-};
+  )
+}
 
 export const getStaticProps = (): { props: HomeProps } => {
-  return { props: YAML.parse(fs.readFileSync('data/homeData.yaml', 'utf8')) };
-};
+  return { props: YAML.parse(fs.readFileSync('data/homeData.yaml', 'utf8')) }
+}
 
-export default IndexPage;
+export default IndexPage
