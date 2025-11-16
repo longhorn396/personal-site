@@ -1,7 +1,7 @@
 import React from 'react'
 import { AppBar, Button, ButtonGroup, Grid, Paper, Slide, Toolbar, useScrollTrigger } from '@mui/material'
 import Link from 'next/link'
-import Image from 'next/legacy/image'
+import Image from 'next/image'
 import { scroller } from 'react-scroll'
 import LeftDrawer from './Drawer'
 
@@ -30,7 +30,16 @@ const Navbar = ({ sections }: NavbarProps): JSX.Element => {
             <Grid className="center" size={2}>
               <Link href="/" legacyBehavior>
                 <a aria-label="Homepage" title="Devin Drawhorn" aria-disabled={state.sectionLinksDisabled}>
-                  <Image alt="Logo" src="/logo.png" height={48} width={32} />
+                  <Image
+                    alt="Logo"
+                    src="/logo.png"
+                    height={48}
+                    width={32}
+                    style={{
+                      maxWidth: '100%',
+                      height: 'auto',
+                    }}
+                  />
                 </a>
               </Link>
             </Grid>

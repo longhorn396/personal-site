@@ -1,5 +1,5 @@
 import { Box } from '@mui/material'
-import Image from 'next/legacy/image'
+import Image from 'next/image'
 import React from 'react'
 import { theme } from './DefaultTheme'
 
@@ -17,7 +17,7 @@ const AccentedImage = ({ alt, height, src, width }: AccentedImageProps): JSX.Ele
       height={height}
       width={width}
     >
-      <Image alt={alt} layout="fill" src={src} />
+      <Image alt={alt} src={src} fill sizes="100vw" />
     </Box>
   )
 }
