@@ -1,7 +1,7 @@
 import React from 'react'
 import { AppBar, Button, ButtonGroup, Grid, Paper, Slide, Toolbar, useScrollTrigger } from '@mui/material'
 import Link from 'next/link'
-import Image from 'next/image'
+import Image from 'next/legacy/image'
 import { scroller } from 'react-scroll'
 import LeftDrawer from './Drawer'
 
