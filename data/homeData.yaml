@@ -31,6 +31,26 @@ sections:
   display: Contact
 
 work:
+- name: Boost Mobile / EchoStar
+  summary:
+  - I joined Boost Mobile's Cloud Services team three months before the completion of
+    an effort to build a new 5G network covering 20% of the US population. Over the
+    following year, the network would expand to cover over 70% of the population. My
+    original focus in all of this was supporting a suite of common networking
+    automation constructs, including VPC and Subnet provisioning. I also developed
+    automation to create a batch of AWS Accounts in our Control Tower from a single
+    request, rather than having to request each Account one at a time.
+  - As Boost transitioned to operating the network instead of building it, my
+    priorities became focused on the governance of our AWS Accounts. Now leading a
+    team of engineers, I designed automation for enforcing our FinOps and Security
+    best practices using Cloud Custodian. After deploying that solution to Production,
+    our AWS billing decreased over $1 million over the next year.
+  - The next chapter is expanding our teams' mindset and tools to all of EchoStar's
+    brands, as Boost Mobile's Cloud Services team proved we could do just that. My
+    contributions include not only the Cloud Custodian solution already metioned, but
+    also tools for AWS resource inventory visibility, an automated solution for regular
+    EC2 patching with SSM, and more that I won't list here. In addition, we're evaluating
+    how we can best use GenAI in our existing and new toolsets.
 - name: Gartner
   summary:
   - My first six month rotation was on the Cloud Automation team where I fell in love
@@ -41,8 +61,9 @@ work:
   - I then spent rotations on a frontend development team, the Performance Engineering
     team, and a fullstack development team. While I learned a lot (including many
     of the libraries and concepts of this website), I always wanted to come back to
-    the Cloud. Now, I am a member of our EKS team as more and more of our developers
-    look to onboard onto Kubernetes.
+    the Cloud. As a member of the EKS team, I helped manage common Terraform modules,
+    Jenkins pipelines, and set up FluxCD and ArgoCD for operations and applications
+    GitOps respectively.
 - name: 'vAuto: Cox Automotive'
   summary:
   - The VIN Diesel team was working on a company-wide initiative that left their backlog

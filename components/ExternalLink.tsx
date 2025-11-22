@@ -1,27 +1,17 @@
 import { Launch } from '@mui/icons-material'
+import { Link } from '@mui/material'
 import React from 'react'
-import { theme } from './DefaultTheme'
 
 type ExternalLinkProps = {
   href: string
   text: string
 }
 
-// const useStyles = makeStyles({
-//   a: {
-//     color: theme.palette.info.main,
-//     textDecoration: 'none',
-//     '&:hover': {
-//       textDecoration: 'underline',
-//     },
-//   },
-// });
-
-const ExternalLink = ({ href, text }: ExternalLinkProps): JSX.Element => {
+const ExternalLink = ({ href, text }: ExternalLinkProps): React.JSX.Element => {
   return (
-    <a href={href} target="_blank" rel="noreferrer noopener">
+    <Link color="info" href={href} target="_blank" rel="noreferrer noopener" underline="hover">
       {text} <Launch fontSize="inherit" />
-    </a>
+    </Link>
   )
 }
 

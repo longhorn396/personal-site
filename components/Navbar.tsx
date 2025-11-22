@@ -1,5 +1,5 @@
 import React from 'react'
-import { AppBar, Button, ButtonGroup, Grid, Paper, Slide, Toolbar, useScrollTrigger } from '@mui/material'
+import { AppBar, Box, Button, ButtonGroup, Grid, Slide, Toolbar, useScrollTrigger } from '@mui/material'
 import Link from 'next/link'
 import Image from 'next/image'
 import { scroller } from 'react-scroll'
@@ -12,7 +12,7 @@ type NavbarProps = {
   }[]
 }
 
-const Navbar = ({ sections }: NavbarProps): JSX.Element => {
+const Navbar = ({ sections }: NavbarProps): React.JSX.Element => {
   const [state, setState] = React.useState({
     sectionLinksDisabled: false,
   })
@@ -23,7 +23,7 @@ const Navbar = ({ sections }: NavbarProps): JSX.Element => {
     <Slide appear={false} direction="down" in={!useScrollTrigger()}>
       <AppBar color="secondary" role="banner">
         <Toolbar>
-          <Grid container>
+          <Grid container sx={{ width: '100%' }}>
             <Grid size={5}>
               <LeftDrawer notifyParent={drawerToggled} />
             </Grid>
@@ -44,9 +44,10 @@ const Navbar = ({ sections }: NavbarProps): JSX.Element => {
               </Link>
             </Grid>
             <Grid sx={{ pt: '9px' }} size={5}>
-              <Paper sx={{ display: { xs: 'none', md: 'block' } }}>
+              <Box sx={{ display: { xs: 'none', md: 'block' } }}>
                 <ButtonGroup
                   aria-label="Page Navigation"
+                  color="primary"
                   sx={{ display: 'flex', justifyContent: 'flex-end' }}
                   size="small"
                 >
@@ -65,7 +66,7 @@ const Navbar = ({ sections }: NavbarProps): JSX.Element => {
                       )
                     })}
                 </ButtonGroup>
-              </Paper>
+              </Box>
             </Grid>
           </Grid>
         </Toolbar>

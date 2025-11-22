@@ -31,7 +31,7 @@ const config: Config = {
     '!**/node_modules/**',
     '!<rootDir>/out/**',
     '!<rootDir>/.next/**',
-    '!<rootDir>/*.config.js',
+    '!<rootDir>/*.config.*s',
     '!<rootDir>/coverage/**',
     '!<rootDir>/bin.ts',
     '!<rootDir>/stack.ts',

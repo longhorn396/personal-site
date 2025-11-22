@@ -51,6 +51,12 @@ const IndexPage = ({ projects, sections, work }: HomeProps): JSX.Element => {
               program and joined Gartner&apos;s Cloud Center of Excellence focussing on Kubernetes management.
             </Typography>
             <br />
+            <Typography variant="body1">
+              I then followed friends to <ExternalLink href="https://www.boostmobile.com/" text="Boost Mobile" />, where
+              we helped create the world&apos;s first Cloud-Native, Open RAN, 5G Network. Now, my focus is Public Cloud
+              Governance for all of <ExternalLink href="https://echostar.com" text="EchoStar" />.
+            </Typography>
+            <br />
             <Button href="/Devin_Drawhorn_Resume.PDF" variant="outlined">
               My Resume
             </Button>
