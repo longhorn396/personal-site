@@ -1,47 +1,27 @@
-import React from 'react';
-import {
-  Card,
-  CardActionArea,
-  CardActions,
-  CardMedia,
-  Grid,
-  IconButton,
-  makeStyles,
-  Typography,
-} from '@material-ui/core';
-import { Web } from '@material-ui/icons';
-import fs from 'fs';
-import YAML from 'yaml';
-import Default from '../../components/DefaultLayout';
+import React from 'react'
+import { Card, CardActionArea, CardActions, CardMedia, Grid, IconButton, Typography } from '@mui/material'
+import { Web } from '@mui/icons-material'
+import fs from 'fs'
+import YAML from 'yaml'
+import Default from '../../components/DefaultLayout'
 
 type Gift = {
-  name: string;
-  desc: string;
-  link?: string;
-  image: string;
-};
+  name: string
+  desc: string
+  link?: string
+  image: string
+}
 
 type GiftsProps = {
-  sections: { to: string; display: string }[];
-  coffee: Gift[];
-  food: Gift[];
-  whiskey: Gift[];
-  others: Gift[];
-};
-
-const useStyles = makeStyles({
-  media: {
-    height: '140px',
-  },
-  text: {
-    textAlign: 'center',
-    padding: '4px',
-  },
-});
+  sections: { to: string; display: string }[]
+  coffee: Gift[]
+  food: Gift[]
+  whiskey: Gift[]
+  others: Gift[]
+}
 
 const GiftsPage = (props: GiftsProps): JSX.Element => {
-  const classes = useStyles();
-  const sections = props.sections;
+  const sections = props.sections
   return (
     <Default
       description="I know I'm difficult to shop for, so here's some ideas"
@@ -54,7 +34,8 @@ const GiftsPage = (props: GiftsProps): JSX.Element => {
         </Typography>
         <br />
         <Typography className="center" variant="body1">
-          I know that I can be difficult to shop for, so here are some ideas for you to help.
+          I know that I can be difficult to shop for, so here are some ideas to help you. I will, of course, appreciate
+          any gift, but these especially.
         </Typography>
       </section>
       <div>
@@ -69,11 +50,11 @@ const GiftsPage = (props: GiftsProps): JSX.Element => {
                   {props[to] &&
                     props[to].map(({ name, desc, link, image }) => {
                       return (
-                        <Grid item key={name} xs={12} sm={6} md={4} lg={3}>
+                        <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={name}>
                           <Card>
                             <CardActionArea>
-                              <CardMedia className={classes.media} image={image} title={name} />
-                              <div className={classes.text}>
+                              <CardMedia sx={{ height: '140px' }} image={image} title={name} />
+                              <div sx={{ textAlign: 'center', padding: '4px' }}>
                                 <Typography component="h3" variant="h6">
                                   {name}
                                 </Typography>
@@ -92,19 +73,19 @@ const GiftsPage = (props: GiftsProps): JSX.Element => {
                             </CardActions>
                           </Card>
                         </Grid>
-                      );
+                      )
                     })}
                 </Grid>
               </section>
-            );
+            )
           })}
       </div>
     </Default>
-  );
-};
+  )
+}
 
 export const getStaticProps = (): { props: GiftsProps } => {
-  return { props: YAML.parse(fs.readFileSync('pages/hidden/giftsData.yaml', 'utf8')) };
-};
+  return { props: YAML.parse(fs.readFileSync('pages/hidden/giftsData.yaml', 'utf8')) }
+}
 
-export default GiftsPage;
+export default GiftsPage

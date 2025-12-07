@@ -1,45 +1,50 @@
 {
-    "compilerOptions": {
-        "alwaysStrict": true,
-        "downlevelIteration": true,
-        "esModuleInterop": true,
-        "forceConsistentCasingInFileNames": true,
-        "inlineSourceMap": true,
-        "lib": [
-          "es2020"
-        ],
-        "moduleResolution": "node",
-        "noEmitOnError": true,
-        "noFallthroughCasesInSwitch": true,
-        "noImplicitAny": false,
-        "noImplicitThis": true,
-        "noImplicitReturns": true,
-        "noUncheckedIndexedAccess": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        "resolveJsonModule": true,
-        "strict": true,
-        "strictBindCallApply": true,
-        "strictFunctionTypes": true,
-        "strictNullChecks": true,
-        "strictPropertyInitialization": true,
-        "stripInternal": true,
-        "target": "ES2020",
-        "typeRoots": [
-          "node_modules/@types"
-        ],
-        "useDefineForClassFields": true,
-        "allowJs": true,
-        "skipLibCheck": true,
-        "noEmit": true,
-        "module": "commonjs",
-        "isolatedModules": true,
-        "jsx": "preserve"
-      },
-      "exclude": [
-        "node_modules"
-      ],
-      "include": [
-        "."
-      ]
+  "compilerOptions": {
+    "alwaysStrict": true,
+    "downlevelIteration": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "inlineSourceMap": true,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "moduleResolution": "node",
+    "noEmitOnError": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": false,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "resolveJsonModule": true,
+    "strict": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "stripInternal": true,
+    "target": "es6",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "useDefineForClassFields": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "module": "esnext",
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "incremental": true
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ]
 }

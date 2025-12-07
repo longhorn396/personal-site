@@ -1,9 +1,9 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createTheme } from '@mui/material/styles'
 
-const serifFonts = ['Cambria', 'Cochin', 'Georgia', 'Times', 'Times New Roman', 'serif'].join(', ');
-const sansSerifFonts = ['Lucida Sans', 'Lucida Sans Regular', 'Geneva', 'Verdana', 'sans-serif'].join(',');
+const serifFonts = ['Cambria', 'Cochin', 'Georgia', 'Times', 'Times New Roman', 'serif'].join(', ')
+const sansSerifFonts = ['Lucida Sans', 'Lucida Sans Regular', 'Geneva', 'Verdana', 'sans-serif'].join(',')
 
-export const theme = createMuiTheme({
+export const theme = createTheme({
   overrides: {
     MuiAccordion: {
       root: {
@@ -55,4 +55,4 @@ export const theme = createMuiTheme({
     },
   },
   spacing: 8,
-});
+})

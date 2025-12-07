@@ -1,24 +1,24 @@
-import React from 'react';
-import { Button, Grid, Typography } from '@material-ui/core';
-import fs from 'fs';
-import YAML from 'yaml';
-import AccentedImage from '../components/AccentedImage';
-import Default from '../components/DefaultLayout';
-import ExternalLink from '../components/ExternalLink';
-import Project, { ProjectProps } from '../components/Project';
-import WorkAccordion from '../components/WorkAccordion';
+import React from 'react'
+import { Button, Grid, Typography } from '@mui/material'
+import fs from 'fs'
+import YAML from 'yaml'
+import AccentedImage from '../components/AccentedImage'
+import Default from '../components/DefaultLayout'
+import ExternalLink from '../components/ExternalLink'
+import Project, { ProjectProps } from '../components/Project'
+import WorkAccordion from '../components/WorkAccordion'
 
 export type HomeProps = {
-  projects: ProjectProps[];
-  sections: { to: string; display: string }[];
-  work: { name: string; summary: string[] }[];
-};
+  projects: ProjectProps[]
+  sections: { to: string; display: string }[]
+  work: { name: string; summary: string[] }[]
+}
 
 const IndexPage = ({ projects, sections, work }: HomeProps): JSX.Element => {
-  const [expanded, setExpanded] = React.useState<string>('');
+  const [expanded, setExpanded] = React.useState<string>('')
   const handleChange = (panel: string) => (_event: React.ChangeEvent<Element>, isExpanded: boolean) => {
-    setExpanded(isExpanded ? panel : '');
-  };
+    setExpanded(isExpanded ? panel : '')
+  }
 
   return (
     <Default
@@ -33,7 +33,7 @@ const IndexPage = ({ projects, sections, work }: HomeProps): JSX.Element => {
       </section>
       <section id="about">
         <Grid container justify="space-evenly" spacing={4}>
-          <Grid item xs={12} md={8}>
+          <Grid size={{ xs: 12, md: 8 }}>
             <Typography variant="body1">
               Hello! I&apos;m Devin, a software engineer based out of Spring, Texas.
             </Typography>
@@ -51,11 +51,17 @@ const IndexPage = ({ projects, sections, work }: HomeProps): JSX.Element => {
               program and joined Gartner&apos;s Cloud Center of Excellence focussing on Kubernetes management.
             </Typography>
             <br />
+            <Typography variant="body1">
+              I then followed friends to <ExternalLink href="https://www.boostmobile.com/" text="Boost Mobile" />, where
+              we helped create the world&apos;s first Cloud-Native, Open RAN, 5G Network. Now, my focus is Public Cloud
+              Governance for all of <ExternalLink href="https://echostar.com" text="EchoStar" />.
+            </Typography>
+            <br />
             <Button href="/Devin_Drawhorn_Resume.PDF" variant="outlined">
               My Resume
             </Button>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <AccentedImage alt="Devin Drawhorn" height="300px" src="/devin.png" width="200px" />
           </Grid>
         </Grid>
@@ -70,7 +76,7 @@ const IndexPage = ({ projects, sections, work }: HomeProps): JSX.Element => {
             work.map(({ name, summary }) => {
               return (
                 <WorkAccordion expanded={expanded} key={name} name={name} onChange={handleChange} summary={summary} />
-              );
+              )
             })}
         </div>
       </section>
@@ -84,7 +90,7 @@ const IndexPage = ({ projects, sections, work }: HomeProps): JSX.Element => {
             projects.map(({ githubLink, name, projectLink, summary }: ProjectProps) => {
               return (
                 <Project key={name} githubLink={githubLink} name={name} projectLink={projectLink} summary={summary} />
-              );
+              )
             })}
         </Grid>
       </section>
@@ -97,11 +103,11 @@ const IndexPage = ({ projects, sections, work }: HomeProps): JSX.Element => {
         </Typography>
       </section>
     </Default>
-  );
-};
+  )
+}
 
 export const getStaticProps = (): { props: HomeProps } => {
-  return { props: YAML.parse(fs.readFileSync('data/homeData.yaml', 'utf8')) };
-};
+  return { props: YAML.parse(fs.readFileSync('data/homeData.yaml', 'utf8')) }
+}
 
-export default IndexPage;
+export default IndexPage

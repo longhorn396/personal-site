@@ -1,13 +1,13 @@
-import { Accordion, AccordionDetails, AccordionSummary, Typography } from '@material-ui/core';
-import { ExpandMore } from '@material-ui/icons';
-import React from 'react';
+import { Accordion, AccordionDetails, AccordionSummary, Typography } from '@mui/material'
+import { ExpandMore } from '@mui/icons-material'
+import React from 'react'
 
 export type WorkAccordionProps = {
-  expanded: string;
-  name: string;
-  onChange(name: string): (event: React.ChangeEvent<Element>, isExpanded: boolean) => void;
-  summary: string[];
-};
+  expanded: string
+  name: string
+  onChange(name: string): (event: React.ChangeEvent<Element>, isExpanded: boolean) => void
+  summary: string[]
+}
 
 const WorkAccordion = ({ expanded, name, onChange, summary }: WorkAccordionProps): JSX.Element => {
   return (
@@ -23,11 +23,11 @@ const WorkAccordion = ({ expanded, name, onChange, summary }: WorkAccordionProps
             <Typography key={i} variant="body1">
               {s}
             </Typography>
-          );
+          )
         })}
       </AccordionDetails>
     </Accordion>
-  );
-};
+  )
+}
 
-export default WorkAccordion;
+export default WorkAccordion

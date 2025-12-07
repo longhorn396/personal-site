@@ -1,6 +1,6 @@
-import React from 'react';
-import AccentedImage from '../../components/AccentedImage';
-import Default from '../../components/DefaultLayout';
+import React from 'react'
+import AccentedImage from '../../components/AccentedImage'
+import Default from '../../components/DefaultLayout'
 
 const HiddenIndex = (): JSX.Element => {
   return (
@@ -15,7 +15,7 @@ const HiddenIndex = (): JSX.Element => {
         />
       </section>
     </Default>
-  );
-};
+  )
+}
 
-export default HiddenIndex;
+export default HiddenIndex

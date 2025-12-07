@@ -1,30 +1,18 @@
-import { makeStyles } from '@material-ui/core';
-import { Launch } from '@material-ui/icons';
-import React from 'react';
-import { theme } from './DefaultTheme';
+import { Launch } from '@mui/icons-material'
+import { Link } from '@mui/material'
+import React from 'react'
 
 type ExternalLinkProps = {
-  href: string;
-  text: string;
-};
+  href: string
+  text: string
+}
 
-const useStyles = makeStyles({
-  a: {
-    color: theme.palette.info.main,
-    textDecoration: 'none',
-    '&:hover': {
-      textDecoration: 'underline',
-    },
-  },
-});
-
-const ExternalLink = ({ href, text }: ExternalLinkProps): JSX.Element => {
-  const classes = useStyles();
+const ExternalLink = ({ href, text }: ExternalLinkProps): React.JSX.Element => {
   return (
-    <a className={classes.a} href={href} target="_blank" rel="noreferrer noopener">
+    <Link color="info" href={href} target="_blank" rel="noreferrer noopener" underline="hover">
       {text} <Launch fontSize="inherit" />
-    </a>
-  );
-};
+    </Link>
+  )
+}
 
-export default ExternalLink;
+export default ExternalLink
