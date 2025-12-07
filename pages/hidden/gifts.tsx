@@ -34,7 +34,8 @@ const GiftsPage = (props: GiftsProps): JSX.Element => {
         </Typography>
         <br />
         <Typography className="center" variant="body1">
-          I know that I can be difficult to shop for, so here are some ideas for you to help.
+          I know that I can be difficult to shop for, so here are some ideas to help you. I will, of course, appreciate
+          any gift, but these especially.
         </Typography>
       </section>
       <div>
