@@ -8,7 +8,7 @@ export const theme = createTheme({
     MuiAccordion: {
       styleOverrides: {
         root: {
-          '&$expanded': {
+          '&.Mui-expanded': {
             margin: '1px 0',
           },
         },
@@ -16,7 +16,7 @@ export const theme = createTheme({
     },
   },
   palette: {
-    mode: 'dark',
+    mode: 'light',
     primary: {
       main: '#0a192f',
       light: '#333f58',

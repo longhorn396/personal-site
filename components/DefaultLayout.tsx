@@ -1,8 +1,6 @@
-import { Container, CssBaseline } from '@mui/material'
-import { ThemeProvider } from '@mui/material/styles'
+import { Container } from '@mui/material'
 import Head from 'next/head'
 import React from 'react'
-import { theme } from './DefaultTheme'
 import Navbar from './Navbar'
 
 type DefaultLayoutProps = {
@@ -19,26 +17,7 @@ const DefaultLayout = ({ description, title, children, sections }: DefaultLayout
   const pageDesc = description || 'Devin Drawhorn'
   const pageTitle = title || 'Devin Drawhorn'
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <style>{`
-        body {
-          margin: 0;
-        }
-        .center {
-          justify-content: center;
-          text-align: center;
-        }
-        .dark-info {
-          color: ${theme.palette.info.dark};
-        }
-        section {
-          padding: 100px 0px;
-        }
-        section:last-child {
-          padding-bottom: 25px;
-        }
-      `}</style>
+    <>
       <Navbar sections={sections} />
       <Head>
         <title>{pageTitle}</title>
@@ -59,7 +38,7 @@ const DefaultLayout = ({ description, title, children, sections }: DefaultLayout
       <Container maxWidth="lg" role="main">
         {children ? children : ''}
       </Container>
-    </ThemeProvider>
+    </>
   )
 }
 

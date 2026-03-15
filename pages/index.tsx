@@ -15,11 +15,6 @@ export type HomeProps = {
 }
 
 const IndexPage = ({ projects, sections, work }: HomeProps): React.JSX.Element => {
-  const [expanded, setExpanded] = React.useState<string>('')
-  const handleChange = (panel: string) => (_event: React.ChangeEvent<Element>, isExpanded: boolean) => {
-    setExpanded(isExpanded ? panel : '')
-  }
-
   return (
     <Default
       description="Devin Drawhorn is a software engineer who enjoys solving problems using code through automation scripts, applications, infrastructure as code, and everything in between."
@@ -71,14 +66,7 @@ const IndexPage = ({ projects, sections, work }: HomeProps): React.JSX.Element =
           Where I&apos;ve Worked
         </Typography>
         <br />
-        <div>
-          {work &&
-            work.map(({ name, summary }) => {
-              return (
-                <WorkAccordion expanded={expanded} key={name} name={name} onChange={handleChange} summary={summary} />
-              )
-            })}
-        </div>
+        <div>{work && work.map(({ name, summary }) => <WorkAccordion key={name} name={name} summary={summary} />)}</div>
       </section>
       <section id="projects">
         <Typography component="h2" variant="h3">
@@ -87,17 +75,14 @@ const IndexPage = ({ projects, sections, work }: HomeProps): React.JSX.Element =
         <br />
         <Grid container spacing={4} sx={{ justifyContent: 'space-evenly' }}>
           {projects &&
-            projects.map(({ githubLink, name, projectLink, summary }: ProjectProps) => {
-              return (
-                <Project key={name} githubLink={githubLink} name={name} projectLink={projectLink} summary={summary} />
-              )
-            })}
+            projects.map(({ githubLink, name, projectLink, summary }: ProjectProps) => (
+              <Project key={name} githubLink={githubLink} name={name} projectLink={projectLink} summary={summary} />
+            ))}
         </Grid>
       </section>
       <section id="contact">
         <Typography className="center" variant="body1">
           My inbox is always open! You can reach me at{' '}
-          <span className="dark-info">[my_first_name]@[my_last_name].com</span>, or{' '}
           <span className="dark-info">[my_first_name][my_last_name]@gmail.com</span>. I also respond to{' '}
           <ExternalLink href="www.linkedin.com/in/devin-drawhorn" text="LinkedIn" /> requests and messages.
         </Typography>
