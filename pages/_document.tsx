@@ -3,8 +3,8 @@ import { useTheme } from '@mui/material'
 import { AppType } from 'next/app'
 import Document, { DocumentContext, DocumentProps, Head, Html, Main, NextScript } from 'next/document'
 import * as React from 'react'
-import { MyAppProps } from './_app'
 import createEmotionCache from '../components/createEmotionCache'
+import { MyAppProps } from '../pages/_app'
 
 interface MyDocumentProps extends DocumentProps {
   emotionStyleTags: React.JSX.Element[]

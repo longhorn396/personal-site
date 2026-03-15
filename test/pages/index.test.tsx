@@ -2,9 +2,9 @@
  * @jest-environment jsdom
  */
 import { render } from '@testing-library/react'
-import fs from 'fs'
 import React from 'react'
 import YAML from 'yaml'
+import fs from 'fs'
 import Home, { getStaticProps } from '../../pages/index'
 
 const homeData = YAML.parse(fs.readFileSync('data/homeData.yaml', 'utf8'))

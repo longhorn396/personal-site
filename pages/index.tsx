@@ -1,7 +1,7 @@
-import React from 'react'
 import { Button, Grid, Typography } from '@mui/material'
-import fs from 'fs'
+import React from 'react'
 import YAML from 'yaml'
+import fs from 'fs'
 import AccentedImage from '../components/AccentedImage'
 import Default from '../components/DefaultLayout'
 import ExternalLink from '../components/ExternalLink'
@@ -14,7 +14,7 @@ export type HomeProps = {
   work: { name: string; summary: string[] }[]
 }
 
-const IndexPage = ({ projects, sections, work }: HomeProps): JSX.Element => {
+const IndexPage = ({ projects, sections, work }: HomeProps): React.JSX.Element => {
   const [expanded, setExpanded] = React.useState<string>('')
   const handleChange = (panel: string) => (_event: React.ChangeEvent<Element>, isExpanded: boolean) => {
     setExpanded(isExpanded ? panel : '')
@@ -32,7 +32,7 @@ const IndexPage = ({ projects, sections, work }: HomeProps): JSX.Element => {
         </Typography>
       </section>
       <section id="about">
-        <Grid container justify="space-evenly" spacing={4}>
+        <Grid container spacing={4} sx={{ justifyContent: 'space-evenly' }}>
           <Grid size={{ xs: 12, md: 8 }}>
             <Typography variant="body1">
               Hello! I&apos;m Devin, a software engineer based out of Spring, Texas.
@@ -85,7 +85,7 @@ const IndexPage = ({ projects, sections, work }: HomeProps): JSX.Element => {
           Projects
         </Typography>
         <br />
-        <Grid container justify="space-evenly" spacing={4}>
+        <Grid container spacing={4} sx={{ justifyContent: 'space-evenly' }}>
           {projects &&
             projects.map(({ githubLink, name, projectLink, summary }: ProjectProps) => {
               return (

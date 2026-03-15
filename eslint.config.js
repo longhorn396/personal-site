@@ -36,32 +36,32 @@ export default defineConfig([
           ignoreDeclarationSort: true,
         },
       ],
-      // 'import/order': [
-      //   1,
-      //   {
-      //     groups: ['external', 'builtin', 'internal', 'sibling', 'parent', 'index'],
-      //     pathGroups: [
-      //       {
-      //         pattern: 'env',
-      //         group: 'internal',
-      //       },
-      //       {
-      //         pattern: 'theme',
-      //         group: 'internal',
-      //       },
-      //       {
-      //         pattern: 'public/**',
-      //         group: 'internal',
-      //         position: 'after',
-      //       },
-      //     ],
-      //     pathGroupsExcludedImportTypes: ['internal'],
-      //     alphabetize: {
-      //       order: 'asc',
-      //       caseInsensitive: true,
-      //     },
-      //   },
-      // ],
+      'import/order': [
+        1,
+        {
+          groups: ['external', 'builtin', 'internal', 'sibling', 'parent', 'index'],
+          pathGroups: [
+            {
+              pattern: 'env',
+              group: 'internal',
+            },
+            {
+              pattern: 'theme',
+              group: 'internal',
+            },
+            {
+              pattern: 'public/**',
+              group: 'internal',
+              position: 'after',
+            },
+          ],
+          pathGroupsExcludedImportTypes: ['internal'],
+          alphabetize: {
+            order: 'asc',
+            caseInsensitive: true,
+          },
+        },
+      ],
       'react-hooks/set-state-in-effect': 'off',
       'no-restricted-imports': [
         'off', // Note: this would increase development loading times if we didn't enable an experimental option in Next's config

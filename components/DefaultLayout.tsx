@@ -1,21 +1,21 @@
-import React from 'react'
 import { Container, CssBaseline } from '@mui/material'
 import { ThemeProvider } from '@mui/material/styles'
 import Head from 'next/head'
+import React from 'react'
 import { theme } from './DefaultTheme'
 import Navbar from './Navbar'
 
 type DefaultLayoutProps = {
   description: string
   title: string
-  children?: React.ReactChild[]
+  children?: React.JSX.Element[]
   sections?: {
     to: string
     display: string
   }[]
 }
 
-const DefaultLayout = ({ description, title, children, sections }: DefaultLayoutProps): JSX.Element => {
+const DefaultLayout = ({ description, title, children, sections }: DefaultLayoutProps): React.JSX.Element => {
   const pageDesc = description || 'Devin Drawhorn'
   const pageTitle = title || 'Devin Drawhorn'
   return (

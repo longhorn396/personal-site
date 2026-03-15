@@ -1,8 +1,8 @@
-import React from 'react'
-import { Card, CardActionArea, CardActions, CardMedia, Grid, IconButton, Typography } from '@mui/material'
 import { Web } from '@mui/icons-material'
-import fs from 'fs'
+import { Box, Card, CardActionArea, CardActions, CardMedia, Grid, IconButton, Typography } from '@mui/material'
+import React from 'react'
 import YAML from 'yaml'
+import fs from 'fs'
 import Default from '../../components/DefaultLayout'
 
 type Gift = {
@@ -20,7 +20,7 @@ type GiftsProps = {
   others: Gift[]
 }
 
-const GiftsPage = (props: GiftsProps): JSX.Element => {
+const GiftsPage = (props: GiftsProps): React.JSX.Element => {
   const sections = props.sections
   return (
     <Default
@@ -46,7 +46,7 @@ const GiftsPage = (props: GiftsProps): JSX.Element => {
                 <Typography component="h2" variant="h3">
                   {display}
                 </Typography>
-                <Grid container justify="space-evenly" spacing={4}>
+                <Grid container spacing={4} sx={{ justifyContent: 'space-evenly' }}>
                   {props[to] &&
                     props[to].map(({ name, desc, link, image }) => {
                       return (
@@ -54,13 +54,13 @@ const GiftsPage = (props: GiftsProps): JSX.Element => {
                           <Card>
                             <CardActionArea>
                               <CardMedia sx={{ height: '140px' }} image={image} title={name} />
-                              <div sx={{ textAlign: 'center', padding: '4px' }}>
+                              <Box sx={{ textAlign: 'center', padding: '4px' }}>
                                 <Typography component="h3" variant="h6">
                                   {name}
                                 </Typography>
                                 <br />
                                 <Typography variant="body1">{desc}</Typography>
-                              </div>
+                              </Box>
                             </CardActionArea>
                             <CardActions className="center">
                               {link && (

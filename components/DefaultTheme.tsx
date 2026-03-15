@@ -4,17 +4,19 @@ const serifFonts = ['Cambria', 'Cochin', 'Georgia', 'Times', 'Times New Roman', 
 const sansSerifFonts = ['Lucida Sans', 'Lucida Sans Regular', 'Geneva', 'Verdana', 'sans-serif'].join(',')
 
 export const theme = createTheme({
-  overrides: {
+  components: {
     MuiAccordion: {
-      root: {
-        '&$expanded': {
-          margin: '1px 0',
+      styleOverrides: {
+        root: {
+          '&$expanded': {
+            margin: '1px 0',
+          },
         },
       },
     },
   },
   palette: {
-    type: 'dark',
+    mode: 'dark',
     primary: {
       main: '#0a192f',
       light: '#333f58',

@@ -4,13 +4,13 @@
 export default $config({
   app(_input) {
     return {
-      name: 'personal-site',
+      name: 'portfolio',
       home: 'aws',
     }
   },
   async run() {
-    new sst.aws.Nextjs('PersonalSite', {
-      domain: 'drawhorn.click',
+    new sst.aws.Nextjs('Portfolio', {
+      domain: $app.stage === 'production' ? 'drawhorn.com' : 'drawhorn.click',
     })
   },
 })

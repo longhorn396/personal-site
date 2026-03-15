@@ -1,5 +1,5 @@
-import { Accordion, AccordionDetails, AccordionSummary, Typography } from '@mui/material'
 import { ExpandMore } from '@mui/icons-material'
+import { Accordion, AccordionDetails, AccordionSummary, Typography } from '@mui/material'
 import React from 'react'
 
 export type WorkAccordionProps = {
@@ -9,9 +9,9 @@ export type WorkAccordionProps = {
   summary: string[]
 }
 
-const WorkAccordion = ({ expanded, name, onChange, summary }: WorkAccordionProps): JSX.Element => {
+const WorkAccordion = ({ expanded, name, onChange, summary }: WorkAccordionProps): React.JSX.Element => {
   return (
-    <Accordion expanded={expanded === name} onChange={onChange(name)}>
+    <Accordion expanded={expanded === name} onChange={() => onChange(name)}>
       <AccordionSummary expandIcon={<ExpandMore />}>
         <Typography component="h3" variant="h5">
           {name}
