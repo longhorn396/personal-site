@@ -1,20 +1,16 @@
-import { SSTConfig } from 'sst'
-import { NextjsSite } from 'sst/constructs'
+// eslint-disable-next-line @typescript-eslint/triple-slash-reference
+/// <reference path="./.sst/platform/config.d.ts" />
 
-export default {
-  config(_input) {
+export default $config({
+  app(_input) {
     return {
       name: 'personal-site',
-      region: 'us-east-1',
+      home: 'aws',
     }
   },
-  stacks(app) {
-    app.stack(function Site({ stack }) {
-      const site = new NextjsSite(stack, 'site')
-
-      stack.addOutputs({
-        SiteUrl: site.url,
-      })
+  async run() {
+    new sst.aws.Nextjs('PersonalSite', {
+      domain: 'drawhorn.click',
     })
   },
-} satisfies SSTConfig
+})

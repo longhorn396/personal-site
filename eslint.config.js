@@ -74,6 +74,7 @@ export default defineConfig([
   globalIgnores([
     // Default ignores of eslint-config-next:
     '.next/**',
+    '.sst/**',
     'out/**',
     'build/**',
     'next-env.d.ts',
