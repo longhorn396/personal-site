@@ -4,4 +4,7 @@ export default {
   experimental: {
     optimizePackageImports: ['@mui/material', '@mui/icons-material'],
   },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 }

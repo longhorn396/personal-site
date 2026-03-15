@@ -5,7 +5,6 @@
   "icon": "./public/logo.png",
   "keywords": [],
   "license": "MIT",
-  "main": "bin.ts",
   "name": "devin-drawhorn-personal-site",
   "repository": {
     "type": "git",
