@@ -29,12 +29,9 @@ const config: Config = {
     '**/*.{js,jsx,ts,tsx}',
     '!**/*.d.ts',
     '!**/node_modules/**',
-    '!<rootDir>/out/**',
-    '!<rootDir>/.next/**',
+    '!<rootDir>/.*/**',
     '!<rootDir>/*.config.*s',
     '!<rootDir>/coverage/**',
-    '!<rootDir>/bin.ts',
-    '!<rootDir>/stack.ts',
     '!<rootDir>/pages/_*.tsx',
   ],
 
