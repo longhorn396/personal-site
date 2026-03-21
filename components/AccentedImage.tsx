@@ -6,17 +6,18 @@ type AccentedImageProps = {
   alt: string
   height: string
   src: string
+  unoptimized?: boolean
   width: string
 }
 
-const AccentedImage = ({ alt, height, src, width }: AccentedImageProps): React.JSX.Element => {
+const AccentedImage = ({ alt, height, src, width, unoptimized }: AccentedImageProps): React.JSX.Element => {
   return (
     <Box
       sx={{ border: (t) => `4px solid ${t.palette.info.main}`, borderRadius: '4px', m: '0 auto', position: 'relative' }}
       height={height}
       width={width}
     >
-      <Image alt={alt} src={src} fill sizes="100vw" />
+      <Image alt={alt} src={src} fill sizes="100vw" unoptimized={unoptimized} />
     </Box>
   )
 }
