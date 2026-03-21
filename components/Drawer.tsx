@@ -31,12 +31,14 @@ const LeftDrawer = ({ notifyParent }: LeftDrawerProps): React.JSX.Element => {
         color="secondary"
         open={state.left}
         onClose={toggleDrawer(false)}
-        PaperProps={{ 'aria-label': 'Site Navigation', role: 'region', sx: { p: '64px 10px 0', width: '250px' } }}
+        slotProps={{
+          paper: { 'aria-label': 'Site Navigation', role: 'region', sx: { p: '64px 10px 0', width: '250px' } },
+        }}
       >
         <Typography aria-label="Pages" component="h1" variant="h5" />
         <List aria-label="Site Navigation" component="nav" role="navigation">
-          <ListItem button>
-            <Link href="/" passHref>
+          <ListItem>
+            <Link href="/">
               <ListItemText
                 sx={{
                   color: (t) => t.palette.info.main,

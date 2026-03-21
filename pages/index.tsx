@@ -1,4 +1,4 @@
-import { Button, Grid, Typography } from '@mui/material'
+import { Grid, Typography } from '@mui/material'
 import React from 'react'
 import YAML from 'yaml'
 import fs from 'fs'
@@ -52,9 +52,6 @@ const IndexPage = ({ projects, sections, work }: HomeProps): React.JSX.Element =
               Governance for all of <ExternalLink href="https://echostar.com" text="EchoStar" />.
             </Typography>
             <br />
-            <Button href="/Devin_Drawhorn_Resume.PDF" variant="outlined">
-              My Resume
-            </Button>
           </Grid>
           <Grid size={{ xs: 12, md: 4 }}>
             <AccentedImage alt="Devin Drawhorn" height="300px" src="/devin.png" width="200px" />

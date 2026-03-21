@@ -28,19 +28,17 @@ const Navbar = ({ sections }: NavbarProps): React.JSX.Element => {
               <LeftDrawer notifyParent={drawerToggled} />
             </Grid>
             <Grid className="center" size={2}>
-              <Link href="/" legacyBehavior>
-                <a aria-label="Homepage" title="Devin Drawhorn" aria-disabled={state.sectionLinksDisabled}>
-                  <Image
-                    alt="Logo"
-                    src="/logo.png"
-                    height={48}
-                    width={32}
-                    style={{
-                      maxWidth: '100%',
-                      height: 'auto',
-                    }}
-                  />
-                </a>
+              <Link href="/" aria-label="Homepage" title="Devin Drawhorn" aria-disabled={state.sectionLinksDisabled}>
+                <Image
+                  alt="Logo"
+                  src="/logo.png"
+                  height={48}
+                  width={32}
+                  style={{
+                    maxWidth: '100%',
+                    height: 'auto',
+                  }}
+                />
               </Link>
             </Grid>
             <Grid sx={{ pt: '9px' }} size={5}>
