@@ -9,7 +9,7 @@ type ExternalLinkProps = {
 
 const ExternalLink = ({ href, text }: ExternalLinkProps): React.JSX.Element => {
   return (
-    <Link color="info" href={href} target="_blank" rel="noreferrer noopener" underline="hover">
+    <Link color="info" href={href} target="_blank" rel="noreferrer noopener" underline="always">
       {text} <Launch fontSize="inherit" />
     </Link>
   )
