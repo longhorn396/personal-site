@@ -4,6 +4,46 @@ const serifFonts = ['Cambria', 'Cochin', 'Georgia', 'Times', 'Times New Roman', 
 const sansSerifFonts = ['Lucida Sans', 'Lucida Sans Regular', 'Geneva', 'Verdana', 'sans-serif'].join(',')
 
 export const theme = createTheme({
+  colorSchemes: {
+    dark: {
+      palette: {
+        mode: 'dark',
+        primary: {
+          main: '#0a192f',
+          light: '#333f58',
+          dark: '#000007',
+        },
+        secondary: {
+          main: '#bf360c',
+          light: '#f9683a',
+          dark: '#870000',
+        },
+        info: {
+          main: '#64ffda',
+          light: '#9efff0',
+          dark: '#14cba8',
+        },
+        text: {
+          primary: '#ffffff',
+          secondary: '#ffffff',
+        },
+        background: {
+          default: '#0a192f',
+          paper: '#bf360c',
+        },
+      },
+    },
+    light: {
+      palette: {
+        mode: 'light',
+        secondary: { main: '#bf360c', contrastText: '#ffffff' },
+        background: {
+          default: '#fff8f6',
+          paper: '#ffffff',
+        },
+      },
+    },
+  },
   components: {
     MuiAccordion: {
       styleOverrides: {
@@ -15,32 +55,7 @@ export const theme = createTheme({
       },
     },
   },
-  palette: {
-    mode: 'light',
-    primary: {
-      main: '#0a192f',
-      light: '#333f58',
-      dark: '#000007',
-    },
-    secondary: {
-      main: '#bf360c',
-      light: '#f9683a',
-      dark: '#870000',
-    },
-    info: {
-      main: '#64ffda',
-      light: '#9efff',
-      dark: '#14cba8',
-    },
-    text: {
-      primary: '#ffffff',
-      secondary: '#ffffff',
-    },
-    background: {
-      default: '#0a192f',
-      paper: '#333f58',
-    },
-  },
+  cssVariables: { colorSchemeSelector: 'class' },
   typography: {
     fontFamily: sansSerifFonts,
     fontSize: 16,

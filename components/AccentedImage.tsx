@@ -13,7 +13,7 @@ type AccentedImageProps = {
 const AccentedImage = ({ alt, height, src, width, unoptimized }: AccentedImageProps): React.JSX.Element => {
   return (
     <Box
-      sx={{ border: (t) => `4px solid ${t.palette.info.main}`, borderRadius: '4px', m: '0 auto', position: 'relative' }}
+      sx={{ border: `4px solid`, borderColor: 'info.main', borderRadius: '8px', m: '0 auto', position: 'relative' }}
       height={height}
       width={width}
     >

@@ -1,4 +1,4 @@
-import { CssBaseline, ThemeProvider } from '@mui/material'
+import { CssBaseline, InitColorSchemeScript, ThemeProvider } from '@mui/material'
 import { AppCacheProvider } from '@mui/material-nextjs/v16-pagesRouter'
 import { AppProps } from 'next/app'
 import React from 'react'
@@ -8,8 +8,9 @@ export default function MyApp(props: AppProps): React.JSX.Element {
   const { Component, pageProps } = props
   return (
     <AppCacheProvider {...pageProps}>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider defaultMode="system" noSsr theme={theme}>
         <CssBaseline />
+        <InitColorSchemeScript attribute="class" />
         <style>{`
         body {
           margin: 0;

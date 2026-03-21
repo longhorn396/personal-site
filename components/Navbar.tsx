@@ -13,12 +13,8 @@ type NavbarProps = {
 }
 
 const Navbar = ({ sections }: NavbarProps): React.JSX.Element => {
-  const [state, setState] = React.useState({
-    sectionLinksDisabled: false,
-  })
-  const drawerToggled = (open: boolean) => {
-    setState({ sectionLinksDisabled: open })
-  }
+  const [sectionLinksDisabled, setSectionLinksDisabled] = React.useState(false)
+  const drawerToggled = (open: boolean) => setSectionLinksDisabled(open)
   return (
     <Slide appear={false} direction="down" in={!useScrollTrigger()}>
       <AppBar color="secondary" role="banner">
@@ -28,7 +24,7 @@ const Navbar = ({ sections }: NavbarProps): React.JSX.Element => {
               <LeftDrawer notifyParent={drawerToggled} />
             </Grid>
             <Grid className="center" size={2}>
-              <Link href="/" aria-label="Homepage" title="Devin Drawhorn" aria-disabled={state.sectionLinksDisabled}>
+              <Link href="/" aria-label="Homepage" title="Devin Drawhorn" aria-disabled={sectionLinksDisabled}>
                 <Image alt="Logo" src="/logo.png" height={48} width={32} />
               </Link>
             </Grid>
@@ -36,7 +32,6 @@ const Navbar = ({ sections }: NavbarProps): React.JSX.Element => {
               <Box sx={{ display: { xs: 'none', md: 'block' } }}>
                 <ButtonGroup
                   aria-label="Page Navigation"
-                  color="primary"
                   sx={{ display: 'flex', justifyContent: 'flex-end' }}
                   size="small"
                 >
@@ -44,13 +39,13 @@ const Navbar = ({ sections }: NavbarProps): React.JSX.Element => {
                     sections.map((section, index) => {
                       return (
                         <Button
-                          color="primary"
-                          disabled={state.sectionLinksDisabled}
+                          color="info"
+                          disabled={sectionLinksDisabled}
                           key={index}
                           onClick={() => scroller.scrollTo(section.to, { smooth: 'easeInOutQuad' })}
-                          variant="outlined"
+                          variant="contained"
                         >
-                          <span style={{ color: '#ffffff' }}>{section.display}</span>
+                          {section.display}
                         </Button>
                       )
                     })}

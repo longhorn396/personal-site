@@ -1,18 +1,17 @@
 import MenuIcon from '@mui/icons-material/Menu'
-import { Drawer, IconButton, List, ListItem, ListItemText, Typography } from '@mui/material'
+import { Button, Divider, Drawer, IconButton, Stack, Typography } from '@mui/material'
 import Link from 'next/link'
 import React from 'react'
+import { ThemePicker } from './ThemePicker'
 
 type LeftDrawerProps = {
   notifyParent(arg0: boolean): void
 }
 
 const LeftDrawer = ({ notifyParent }: LeftDrawerProps): React.JSX.Element => {
-  const [state, setState] = React.useState({
-    left: false,
-  })
+  const [isOpen, setIsOpen] = React.useState(false)
   const toggleDrawer = (open: boolean) => () => {
-    setState({ left: open })
+    setIsOpen(open)
     notifyParent(open)
   }
   return (
@@ -22,35 +21,36 @@ const LeftDrawer = ({ notifyParent }: LeftDrawerProps): React.JSX.Element => {
         color="inherit"
         aria-label="Menu"
         onClick={toggleDrawer(true)}
-        disabled={state.left}
+        disabled={isOpen}
         sx={{ mt: '4px' }}
       >
         <MenuIcon />
       </IconButton>
       <Drawer
-        color="secondary"
-        open={state.left}
+        color="info"
+        open={isOpen}
         onClose={toggleDrawer(false)}
         slotProps={{
-          paper: { 'aria-label': 'Site Navigation', role: 'region', sx: { p: '64px 10px 0', width: '250px' } },
+          paper: {
+            'aria-label': 'Site Navigation',
+            role: 'region',
+            sx: { backgroundColor: 'background.default', p: '10px', width: '375px' },
+          },
         }}
       >
-        <Typography aria-label="Pages" component="h1" variant="h5" />
-        <List aria-label="Site Navigation" component="nav" role="navigation">
-          <ListItem>
-            <Link href="/">
-              <ListItemText
-                sx={{
-                  color: (t) => t.palette.info.main,
-                  textDecoration: 'none',
-                  width: 'min-content',
-                  '& span': { m: 0, width: 'fit-content', '&:hover': { textDecoration: 'underline' } },
-                }}
-                primary="Home"
-              />
-            </Link>
-          </ListItem>
-        </List>
+        <Stack spacing={2}>
+          <ThemePicker />
+          <Divider sx={{ borderBottomWidth: '3px' }} />
+          <Typography component="h1" variant="h5">
+            Pages:
+          </Typography>
+          <Link href="/" passHref>
+            <Button color="secondary" fullWidth variant="contained">
+              Home
+            </Button>
+          </Link>
+          <Typography variant="body1">Check back soon for more pages</Typography>
+        </Stack>
       </Drawer>
     </React.Fragment>
   )

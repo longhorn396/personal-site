@@ -80,8 +80,11 @@ const IndexPage = ({ projects, sections, work }: HomeProps): React.JSX.Element =
       <section id="contact">
         <Typography className="center" variant="body1">
           My inbox is always open! You can reach me at{' '}
-          <span className="dark-info">[my_first_name][my_last_name]@gmail.com</span>. I also respond to{' '}
-          <ExternalLink href="www.linkedin.com/in/devin-drawhorn" text="LinkedIn" /> requests and messages.
+          <Typography color="info.dark" component="span">
+            [my_first_name][my_last_name]@gmail.com
+          </Typography>
+          . I also respond to <ExternalLink href="www.linkedin.com/in/devin-drawhorn" text="LinkedIn" /> requests and
+          messages.
         </Typography>
       </section>
     </Default>
