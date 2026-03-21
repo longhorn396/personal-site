@@ -1,20 +1,13 @@
-import { CacheProvider, EmotionCache } from '@emotion/react'
 import { CssBaseline, ThemeProvider } from '@mui/material'
+import { AppCacheProvider } from '@mui/material-nextjs/v16-pagesRouter'
 import { AppProps } from 'next/app'
 import React from 'react'
-import createEmotionCache from '../components/createEmotionCache'
 import { theme } from '../components/DefaultTheme'
 
-const clientSideEmotionCache = createEmotionCache()
-
-export interface MyAppProps extends AppProps {
-  emotionCache?: EmotionCache
-}
-
-export default function MyApp(props: MyAppProps): React.JSX.Element {
-  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props
+export default function MyApp(props: AppProps): React.JSX.Element {
+  const { Component, pageProps } = props
   return (
-    <CacheProvider value={emotionCache}>
+    <AppCacheProvider {...pageProps}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <style>{`
@@ -37,6 +30,6 @@ export default function MyApp(props: MyAppProps): React.JSX.Element {
       `}</style>
         <Component {...pageProps} />
       </ThemeProvider>
-    </CacheProvider>
+    </AppCacheProvider>
   )
 }
