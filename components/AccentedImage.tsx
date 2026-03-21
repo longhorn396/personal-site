@@ -17,7 +17,7 @@ const AccentedImage = ({ alt, height, src, width, unoptimized }: AccentedImagePr
       height={height}
       width={width}
     >
-      <Image alt={alt} src={src} fill sizes="100vw" unoptimized={unoptimized} />
+      <Image alt={alt} src={src} fill sizes="auto" unoptimized={unoptimized} />
     </Box>
   )
 }

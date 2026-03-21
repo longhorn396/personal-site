@@ -29,16 +29,7 @@ const Navbar = ({ sections }: NavbarProps): React.JSX.Element => {
             </Grid>
             <Grid className="center" size={2}>
               <Link href="/" aria-label="Homepage" title="Devin Drawhorn" aria-disabled={state.sectionLinksDisabled}>
-                <Image
-                  alt="Logo"
-                  src="/logo.png"
-                  height={48}
-                  width={32}
-                  style={{
-                    maxWidth: '100%',
-                    height: 'auto',
-                  }}
-                />
+                <Image alt="Logo" src="/logo.png" height={48} width={32} />
               </Link>
             </Grid>
             <Grid sx={{ pt: '9px' }} size={5}>
