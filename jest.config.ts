@@ -33,6 +33,7 @@ const config: Config = {
     '!<rootDir>/*.config.*s',
     '!<rootDir>/coverage/**',
     '!<rootDir>/pages/_*.tsx',
+    '!<rootDir>/pages/hidden/*.tsx',
   ],
 
   // The directory where Jest should output its coverage files
