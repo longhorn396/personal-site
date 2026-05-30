@@ -49,6 +49,11 @@ const LeftDrawer = ({ notifyParent }: LeftDrawerProps): React.JSX.Element => {
               Home
             </Button>
           </Link>
+          <Link href="/menuPlanning" passHref>
+            <Button color="secondary" fullWidth variant="contained">
+              Menu Planning
+            </Button>
+          </Link>
           <Typography variant="body1">Check back soon for more pages</Typography>
         </Stack>
       </Drawer>

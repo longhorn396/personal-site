@@ -6,7 +6,7 @@ import Navbar from './Navbar'
 type DefaultLayoutProps = {
   description: string
   title: string
-  children?: React.JSX.Element[]
+  children?: React.JSX.Element[] | React.JSX.Element
   sections?: {
     to: string
     display: string
