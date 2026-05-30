@@ -10,11 +10,7 @@ export default $config({
   },
   async run() {
     const recipeTable = new sst.aws.Dynamo('RecipeTable', {
-      fields: {
-        recipeName: 'string',
-        cook: 'string',
-        lunch: 'string',
-      },
+      fields: { recipeName: 'string' },
       primaryIndex: { hashKey: 'recipeName' },
     })
     new sst.aws.Nextjs('Portfolio', {
