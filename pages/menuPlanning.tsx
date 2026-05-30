@@ -62,7 +62,7 @@ const MenuPlanningPage = ({ recipes }: MenuPlanningPageProps): React.JSX.Element
 
 export const getStaticProps = (): { props: MenuPlanningPageProps } => {
   const loadedRecipes = readCSVFile('data/recipes.csv')
-  return { props: { recipes: shuffle((loadedRecipes as Recipe[]) || []) } }
+  return { props: { recipes: shuffle(loadedRecipes as Recipe[]) } }
 }
 
 export default MenuPlanningPage
