@@ -1,36 +1,47 @@
 import { createTheme, ThemeProvider, Typography } from '@mui/material'
-import { shuffle } from 'lodash'
 import { MaterialReactTable, MRT_ColumnDef } from 'material-react-table'
-import React, { useMemo } from 'react'
+import React, { useEffect, useState } from 'react'
 import Default from '../components/DefaultLayout'
 import { Recipe } from '../types/recipe'
-import { readCSVFile } from '../utils/readCSVfile'
+import apiRequest from '../utils/apiRequest'
 
-type MenuPlanningPageProps = {
-  recipes: Recipe[]
-}
+const cols: MRT_ColumnDef<Recipe>[] = [
+  { accessorKey: 'name', header: 'Name' },
+  { accessorKey: 'location', header: 'Location', size: 125 },
+  { accessorKey: 'lunch', header: 'Lunch?', filterVariant: 'select', filterSelectOptions: ['YES', 'NO'], size: 99 },
+  {
+    accessorKey: 'cook',
+    header: 'Cook',
+    filterVariant: 'multi-select',
+    filterSelectOptions: ['Brianna', 'Devin', 'Either'],
+    size: 99,
+  },
+]
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+})
 
-const MenuPlanningPage = ({ recipes }: MenuPlanningPageProps): React.JSX.Element => {
-  const cols = useMemo<MRT_ColumnDef<Recipe>[]>(
-    () => [
-      { accessorKey: 'name', header: 'Name' },
-      { accessorKey: 'location', header: 'Location', size: 125 },
-      { accessorKey: 'lunch', header: 'Lunch?', filterVariant: 'select', filterSelectOptions: ['YES', 'NO'], size: 99 },
-      {
-        accessorKey: 'cook',
-        header: 'Cook',
-        filterVariant: 'select',
-        filterSelectOptions: ['Brianna', 'Devin', 'Either'],
-        size: 99,
+const MenuPlanningPage = (): React.JSX.Element => {
+  const [error, setError] = useState<boolean>(false)
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [recipes, setRecipes] = useState<Recipe[]>([])
+
+  useEffect(() => {
+    setIsLoading(true)
+    apiRequest(
+      '/api/menuPlanning',
+      { method: 'GET' },
+      async (res: Response) => {
+        const response = await res.json()
+        setRecipes(response.recipes)
       },
-    ],
-    [],
-  )
-  const darkTheme = createTheme({
-    palette: {
-      mode: 'dark',
-    },
-  })
+      () => setError(true),
+      () => setIsLoading(false),
+    )
+  }, [])
+
   return (
     <Default description="A simple menu planning tool with our favorite recipes" title="Menu Planning">
       <section>
@@ -43,7 +54,14 @@ const MenuPlanningPage = ({ recipes }: MenuPlanningPageProps): React.JSX.Element
             enableHiding={false}
             enableDensityToggle={false}
             enableKeyboardShortcuts={false}
-            initialState={{ density: 'compact', pagination: { pageIndex: 0, pageSize: 20 }, showColumnFilters: true }}
+            initialState={{
+              density: 'compact',
+              pagination: { pageIndex: 0, pageSize: 20 },
+              isLoading,
+              showAlertBanner: error,
+              showColumnFilters: true,
+              showProgressBars: isLoading,
+            }}
             layoutMode="grid"
             muiPaginationProps={{ rowsPerPageOptions: [10, 20, 40] }}
             muiTableBodyCellProps={{ sx: { fontSize: (t) => t.typography.body1.fontSize } }}
@@ -58,11 +76,6 @@ const MenuPlanningPage = ({ recipes }: MenuPlanningPageProps): React.JSX.Element
       </section>
     </Default>
   )
-}
-
-export const getStaticProps = (): { props: MenuPlanningPageProps } => {
-  const loadedRecipes = readCSVFile('data/recipes.csv')
-  return { props: { recipes: shuffle(loadedRecipes as Recipe[]) } }
 }
 
 export default MenuPlanningPage
