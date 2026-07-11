@@ -1,9 +1,11 @@
 import { createTheme, ThemeProvider, Typography } from '@mui/material'
+import { shuffle } from 'lodash'
 import { MaterialReactTable, MRT_ColumnDef } from 'material-react-table'
-import React, { useEffect, useState } from 'react'
+import { GetServerSideProps } from 'next'
+import React from 'react'
 import Default from '../components/DefaultLayout'
 import { Recipe } from '../types/recipe'
-import apiRequest from '../utils/apiRequest'
+import { readCSVFile } from '../utils/readCSVfile'
 
 const cols: MRT_ColumnDef<Recipe>[] = [
   { accessorKey: 'name', header: 'Name' },
@@ -23,25 +25,11 @@ const darkTheme = createTheme({
   },
 })
 
-const MenuPlanningPage = (): React.JSX.Element => {
-  const [error, setError] = useState<boolean>(false)
-  const [isLoading, setIsLoading] = useState<boolean>(false)
-  const [recipes, setRecipes] = useState<Recipe[]>([])
+export type MenuPlanningProps = {
+  recipes: Recipe[]
+}
 
-  useEffect(() => {
-    setIsLoading(true)
-    apiRequest(
-      '/api/menuPlanning',
-      { method: 'GET' },
-      async (res: Response) => {
-        const response = await res.json()
-        setRecipes(response.recipes)
-      },
-      () => setError(true),
-      () => setIsLoading(false),
-    )
-  }, [])
-
+const MenuPlanningPage = ({ recipes }: MenuPlanningProps): React.JSX.Element => {
   return (
     <Default description="A simple menu planning tool with our favorite recipes" title="Menu Planning">
       <section>
@@ -57,10 +45,7 @@ const MenuPlanningPage = (): React.JSX.Element => {
             initialState={{
               density: 'compact',
               pagination: { pageIndex: 0, pageSize: 20 },
-              isLoading,
-              showAlertBanner: error,
               showColumnFilters: true,
-              showProgressBars: isLoading,
             }}
             layoutMode="grid"
             muiPaginationProps={{ rowsPerPageOptions: [10, 20, 40] }}
@@ -76,6 +61,11 @@ const MenuPlanningPage = (): React.JSX.Element => {
       </section>
     </Default>
   )
+}
+
+export const getServerSideProps: GetServerSideProps<MenuPlanningProps> = async () => {
+  const loadedRecipes = readCSVFile('data/recipes.csv') as Recipe[]
+  return { props: { recipes: shuffle(loadedRecipes) } }
 }
 
 export default MenuPlanningPage

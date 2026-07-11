@@ -1,9 +1,12 @@
 import Papa from 'papaparse'
 import fs from 'fs'
+import path from 'path'
 
 export const readCSVFile = (filePath: string): unknown[] => {
+  const resolvedPath = path.resolve(process.cwd(), filePath)
+
   // 2. Read the file synchronously from disk
-  const fileContent = fs.readFileSync(filePath, 'utf8')
+  const fileContent = fs.readFileSync(resolvedPath, 'utf8')
 
   // 3. Parse the content synchronously and return the data
   const results = Papa.parse<unknown>(fileContent, {
@@ -17,6 +20,6 @@ export const readCSVFile = (filePath: string): unknown[] => {
   }
 
   const typedData: unknown[] = results.data as unknown[]
-  console.log('Successfully loaded CSV data from', filePath, ':', typedData.length, 'records')
+  console.log('Successfully loaded CSV data from', resolvedPath, ':', typedData.length, 'records')
   return typedData
 }

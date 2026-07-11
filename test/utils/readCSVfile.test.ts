@@ -1,8 +1,8 @@
 /**
  * @jest-environment node
  */
-import fs from 'fs'
 import Papa from 'papaparse'
+import fs from 'fs'
 import { readCSVFile } from '../../utils/readCSVfile'
 
 jest.mock('fs', () => ({
@@ -34,7 +34,8 @@ describe('readCSVFile', () => {
 
     const result = readCSVFile('data/recipes.csv')
 
-    expect(mockedFs.readFileSync).toHaveBeenCalledWith('data/recipes.csv', 'utf8')
+    const [resolvedPath] = mockedFs.readFileSync.mock.calls[0] as [string, string]
+    expect(resolvedPath).toMatch(/data\/recipes\.csv$/)
     expect(mockedPapa.parse).toHaveBeenCalledWith('name,location\nPizza,Kitchen', {
       header: true,
       dynamicTyping: true,
@@ -43,7 +44,7 @@ describe('readCSVFile', () => {
     expect(result).toEqual([{ name: 'Pizza', location: 'Kitchen' }])
     expect(consoleLogSpy).toHaveBeenCalledWith(
       'Successfully loaded CSV data from',
-      'data/recipes.csv',
+      expect.stringMatching(/data\/recipes\.csv$/),
       ':',
       1,
       'records',

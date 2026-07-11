@@ -1,54 +1,44 @@
 /**
  * @jest-environment jsdom
  */
-import { render, screen } from '@testing-library/react'
-import { act } from 'react'
-import MenuPlanningPage from '../../pages/menuPlanning'
-import apiRequest from '../../utils/apiRequest'
+import { render } from '@testing-library/react'
+import MenuPlanningPage, { getServerSideProps } from '../../pages/menuPlanning'
+import type { Recipe } from '../../types/recipe'
+import { readCSVFile } from '../../utils/readCSVfile'
 
-jest.mock('../../utils/apiRequest', () => ({
-  __esModule: true,
-  default: jest.fn(),
+jest.mock('../../utils/readCSVfile', () => ({
+  readCSVFile: jest.fn(),
 }))
 
-const mockedApiRequest = apiRequest as jest.MockedFunction<typeof apiRequest>
-let menuPlanningPage: ReturnType<typeof render>
-
-beforeEach(async () => {
-  jest.clearAllMocks()
-
-  mockedApiRequest.mockImplementation((_path, _params, callback) => {
-    callback({ json: async () => ({ recipes: [] }) })
-  })
-
-  await act(async () => {
-    menuPlanningPage = render(<MenuPlanningPage />)
-    await Promise.resolve()
-  })
-})
+const mockedReadCSVFile = readCSVFile as jest.MockedFunction<typeof readCSVFile>
 
 describe('Menu Planning page', () => {
-  it('matches snapshot', () => {
-    expect(menuPlanningPage).toMatchSnapshot()
+  beforeEach(() => {
+    jest.clearAllMocks()
   })
 
-  it('handles the error path from apiRequest', async () => {
-    mockedApiRequest.mockImplementation((_path, _params, _callback, onError, fin) => {
-      onError?.()
-      fin?.()
-    })
+  it('matches snapshot', () => {
+    mockedReadCSVFile.mockReturnValue([])
+    const { container } = render(<MenuPlanningPage recipes={[]} />)
+    expect(container).toMatchSnapshot()
+  })
 
-    await act(async () => {
-      render(<MenuPlanningPage />)
-    })
+  it('uses server-side props built from csv data', async () => {
+    const recipes: Recipe[] = [
+      { name: 'Pasta', location: 'Kitchen', lunch: 'YES', cook: 'Brianna' },
+      { name: 'Tacos', location: 'Dining Room', lunch: 'NO', cook: 'Devin' },
+    ]
 
-    expect(screen.getAllByText('Menu Planning').length).toBeGreaterThan(0)
-    expect(mockedApiRequest).toHaveBeenCalledWith(
-      '/api/menuPlanning',
-      { method: 'GET' },
-      expect.any(Function),
-      expect.any(Function),
-      expect.any(Function),
-    )
+    mockedReadCSVFile.mockReturnValue(recipes)
+
+    const props = await getServerSideProps({} as never)
+
+    expect(mockedReadCSVFile).toHaveBeenCalledWith('data/recipes.csv')
+    expect(props).toEqual({
+      props: {
+        recipes: expect.arrayContaining(recipes),
+      },
+    })
+    expect(props.props.recipes as Recipe[]).toHaveLength(recipes.length)
   })
 })
